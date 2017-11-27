@@ -1,4 +1,4 @@
 # DashPOC
 POC for mobile dash recognition
 
-For DashPOC, you need to manually download the "Inceptionv3.mlmodel" from https://www.kaggle.com/google-brain/inception-v3. Copy it to DashPOC/Models/
+For the DashPOC project, you will need to install Git LFS. (https://git-lfs.github.com). Once installed, after the repo is cloned, run 'git lfs pull' from a command line to sync large files.
