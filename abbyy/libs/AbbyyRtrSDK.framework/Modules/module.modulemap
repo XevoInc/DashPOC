@@ -1,0 +1,6 @@
+framework module AbbyyRtrSDK {
+  umbrella header "AbbyyRtrSDK.h"
+
+  export *
+  module * { export * }
+}

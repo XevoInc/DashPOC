@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		43BC85B91DA31E2800FC04B0 /* RTRAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC85B81DA31E2800FC04B0 /* RTRAppDelegate.swift */; };
+		43BC85BB1DA31E2800FC04B0 /* RTRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC85BA1DA31E2800FC04B0 /* RTRViewController.swift */; };
+		43BC85BE1DA31E2800FC04B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43BC85BC1DA31E2800FC04B0 /* Main.storyboard */; };
+		43BC85C01DA31E2800FC04B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43BC85BF1DA31E2800FC04B0 /* Assets.xcassets */; };
+		43BC85CC1DA3226D00FC04B0 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BC85CB1DA3226D00FC04B0 /* libc++.tbd */; };
+		43BC85D01DA326F200FC04B0 /* RTRSelectedAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC85CF1DA326F200FC04B0 /* RTRSelectedAreaView.swift */; };
+		43BC85DD1DA4330200FC04B0 /* RTRHexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC85DC1DA4330200FC04B0 /* RTRHexColor.swift */; };
+		43BC86211DA442D700FC04B0 /* Brazil.edc in Copy Dictionaries */ = {isa = PBXBuildFile; fileRef = 43BC85E11DA43E6B00FC04B0 /* Brazil.edc */; };
+		43BC86261DA442D700FC04B0 /* English.edc in Copy Dictionaries */ = {isa = PBXBuildFile; fileRef = 43BC85E61DA43E6B00FC04B0 /* English.edc */; };
+		43BC862A1DA442D700FC04B0 /* French.edc in Copy Dictionaries */ = {isa = PBXBuildFile; fileRef = 43BC85EA1DA43E6B00FC04B0 /* French.edc */; };
+		43BC862B1DA442D700FC04B0 /* German.edc in Copy Dictionaries */ = {isa = PBXBuildFile; fileRef = 43BC85EB1DA43E6B00FC04B0 /* German.edc */; };
+		43BC862F1DA442D700FC04B0 /* Italian.edc in Copy Dictionaries */ = {isa = PBXBuildFile; fileRef = 43BC85EF1DA43E6B00FC04B0 /* Italian.edc */; };
+		43BC86321DA442D700FC04B0 /* Polish.edc in Copy Dictionaries */ = {isa = PBXBuildFile; fileRef = 43BC85F21DA43E6B00FC04B0 /* Polish.edc */; };
+		43BC86351DA442D700FC04B0 /* Spanish.edc in Copy Dictionaries */ = {isa = PBXBuildFile; fileRef = 43BC85F51DA43E6B00FC04B0 /* Spanish.edc */; };
+		43BC863B1DA4436A00FC04B0 /* European.rom in Copy Patterns */ = {isa = PBXBuildFile; fileRef = 43BC86131DA43E9600FC04B0 /* European.rom */; };
+		43BC863C1DA4436A00FC04B0 /* FindText.rom in Copy Patterns */ = {isa = PBXBuildFile; fileRef = 43BC86141DA43E9600FC04B0 /* FindText.rom */; };
+		75CA77A71E6D808B00750492 /* AbbyyRtrSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CA77A61E6D808B00750492 /* AbbyyRtrSDK.framework */; };
+		CF2C54321DD1C132006B70FB /* AbbyyRtrSdk.license in Resources */ = {isa = PBXBuildFile; fileRef = CF2C54311DD1C132006B70FB /* AbbyyRtrSdk.license */; };
+		CFF18E0B1F7101B9001A6DFF /* RTRProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF18E0A1F7101B9001A6DFF /* RTRProgressView.swift */; };
+		CFF18E0C1F713A37001A6DFF /* TextCapture.RTRProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF18E081F710191001A6DFF /* TextCapture.RTRProgressView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		43BC86201DA4429500FC04B0 /* Copy Dictionaries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Dictionaries;
+			dstSubfolderSpec = 7;
+			files = (
+				43BC86211DA442D700FC04B0 /* Brazil.edc in Copy Dictionaries */,
+				43BC86261DA442D700FC04B0 /* English.edc in Copy Dictionaries */,
+				43BC862A1DA442D700FC04B0 /* French.edc in Copy Dictionaries */,
+				43BC862B1DA442D700FC04B0 /* German.edc in Copy Dictionaries */,
+				43BC862F1DA442D700FC04B0 /* Italian.edc in Copy Dictionaries */,
+				43BC86321DA442D700FC04B0 /* Polish.edc in Copy Dictionaries */,
+				43BC86351DA442D700FC04B0 /* Spanish.edc in Copy Dictionaries */,
+			);
+			name = "Copy Dictionaries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43BC86391DA4434D00FC04B0 /* Copy Patterns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Patterns;
+			dstSubfolderSpec = 7;
+			files = (
+				43BC863B1DA4436A00FC04B0 /* European.rom in Copy Patterns */,
+				43BC863C1DA4436A00FC04B0 /* FindText.rom in Copy Patterns */,
+			);
+			name = "Copy Patterns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		43BC85B51DA31E2800FC04B0 /* TextCapture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		43BC85B81DA31E2800FC04B0 /* RTRAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTRAppDelegate.swift; sourceTree = "<group>"; };
+		43BC85BA1DA31E2800FC04B0 /* RTRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTRViewController.swift; sourceTree = "<group>"; };
+		43BC85BD1DA31E2800FC04B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		43BC85BF1DA31E2800FC04B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		43BC85C41DA31E2800FC04B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43BC85CB1DA3226D00FC04B0 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		43BC85CF1DA326F200FC04B0 /* RTRSelectedAreaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTRSelectedAreaView.swift; sourceTree = "<group>"; };
+		43BC85D91DA3509E00FC04B0 /* RtrSamples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RtrSamples-Bridging-Header.h"; sourceTree = "<group>"; };
+		43BC85DC1DA4330200FC04B0 /* RTRHexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTRHexColor.swift; sourceTree = "<group>"; };
+		43BC85E11DA43E6B00FC04B0 /* Brazil.edc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brazil.edc; sourceTree = "<group>"; };
+		43BC85E61DA43E6B00FC04B0 /* English.edc */ = {isa = PBXFileReference; lastKnownFileType = file; path = English.edc; sourceTree = "<group>"; };
+		43BC85EA1DA43E6B00FC04B0 /* French.edc */ = {isa = PBXFileReference; lastKnownFileType = file; path = French.edc; sourceTree = "<group>"; };
+		43BC85EB1DA43E6B00FC04B0 /* German.edc */ = {isa = PBXFileReference; lastKnownFileType = file; path = German.edc; sourceTree = "<group>"; };
+		43BC85EF1DA43E6B00FC04B0 /* Italian.edc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Italian.edc; sourceTree = "<group>"; };
+		43BC85F21DA43E6B00FC04B0 /* Polish.edc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Polish.edc; sourceTree = "<group>"; };
+		43BC85F51DA43E6B00FC04B0 /* Spanish.edc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Spanish.edc; sourceTree = "<group>"; };
+		43BC86131DA43E9600FC04B0 /* European.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = European.rom; sourceTree = "<group>"; };
+		43BC86141DA43E9600FC04B0 /* FindText.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = FindText.rom; sourceTree = "<group>"; };
+		75CA779F1E6D7F2200750492 /* Readme.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Readme.html; path = ../Readme.html; sourceTree = "<group>"; };
+		75CA77A61E6D808B00750492 /* AbbyyRtrSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AbbyyRtrSDK.framework; sourceTree = "<group>"; };
+		CF2C54311DD1C132006B70FB /* AbbyyRtrSdk.license */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = AbbyyRtrSdk.license; sourceTree = "<group>"; };
+		CF5693381DCB53D3006059E2 /* TextCapture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextCapture.entitlements; sourceTree = "<group>"; };
+		CFF18E081F710191001A6DFF /* TextCapture.RTRProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextCapture.RTRProgressView.xib; sourceTree = "<group>"; };
+		CFF18E0A1F7101B9001A6DFF /* RTRProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTRProgressView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		43BC85B21DA31E2800FC04B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75CA77A71E6D808B00750492 /* AbbyyRtrSDK.framework in Frameworks */,
+				43BC85CC1DA3226D00FC04B0 /* libc++.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		43BC85AC1DA31E2800FC04B0 = {
+			isa = PBXGroup;
+			children = (
+				75CA779F1E6D7F2200750492 /* Readme.html */,
+				75364CBE1E6707BC00B7F51E /* assets */,
+				75CA77A11E6D7F4800750492 /* libs */,
+				75CA77A21E6D7F4E00750492 /* License */,
+				43BC85B71DA31E2800FC04B0 /* TextCapture */,
+				43BC85B61DA31E2800FC04B0 /* Products */,
+				43BC85CA1DA3226D00FC04B0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		43BC85B61DA31E2800FC04B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				43BC85B51DA31E2800FC04B0 /* TextCapture.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		43BC85B71DA31E2800FC04B0 /* TextCapture */ = {
+			isa = PBXGroup;
+			children = (
+				CFF18E081F710191001A6DFF /* TextCapture.RTRProgressView.xib */,
+				CF5693381DCB53D3006059E2 /* TextCapture.entitlements */,
+				43BC85D91DA3509E00FC04B0 /* RtrSamples-Bridging-Header.h */,
+				43BC85B81DA31E2800FC04B0 /* RTRAppDelegate.swift */,
+				43BC85CF1DA326F200FC04B0 /* RTRSelectedAreaView.swift */,
+				43BC85BA1DA31E2800FC04B0 /* RTRViewController.swift */,
+				43BC85DC1DA4330200FC04B0 /* RTRHexColor.swift */,
+				43BC85BC1DA31E2800FC04B0 /* Main.storyboard */,
+				43BC85BF1DA31E2800FC04B0 /* Assets.xcassets */,
+				43BC85C41DA31E2800FC04B0 /* Info.plist */,
+				CFF18E0A1F7101B9001A6DFF /* RTRProgressView.swift */,
+			);
+			path = TextCapture;
+			sourceTree = "<group>";
+		};
+		43BC85CA1DA3226D00FC04B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43BC85CB1DA3226D00FC04B0 /* libc++.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43BC85E01DA43E5600FC04B0 /* dictionaries */ = {
+			isa = PBXGroup;
+			children = (
+				43BC85E11DA43E6B00FC04B0 /* Brazil.edc */,
+				43BC85E61DA43E6B00FC04B0 /* English.edc */,
+				43BC85EA1DA43E6B00FC04B0 /* French.edc */,
+				43BC85EB1DA43E6B00FC04B0 /* German.edc */,
+				43BC85EF1DA43E6B00FC04B0 /* Italian.edc */,
+				43BC85F21DA43E6B00FC04B0 /* Polish.edc */,
+				43BC85F51DA43E6B00FC04B0 /* Spanish.edc */,
+			);
+			path = dictionaries;
+			sourceTree = "<group>";
+		};
+		43BC86111DA43E8A00FC04B0 /* patterns */ = {
+			isa = PBXGroup;
+			children = (
+				43BC86131DA43E9600FC04B0 /* European.rom */,
+				43BC86141DA43E9600FC04B0 /* FindText.rom */,
+			);
+			path = patterns;
+			sourceTree = "<group>";
+		};
+		75364CBE1E6707BC00B7F51E /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				43BC85E01DA43E5600FC04B0 /* dictionaries */,
+				43BC86111DA43E8A00FC04B0 /* patterns */,
+			);
+			name = assets;
+			path = ../assets;
+			sourceTree = "<group>";
+		};
+		75CA77A11E6D7F4800750492 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				75CA77A61E6D808B00750492 /* AbbyyRtrSDK.framework */,
+			);
+			name = libs;
+			path = ../libs;
+			sourceTree = "<group>";
+		};
+		75CA77A21E6D7F4E00750492 /* License */ = {
+			isa = PBXGroup;
+			children = (
+				CF2C54311DD1C132006B70FB /* AbbyyRtrSdk.license */,
+			);
+			name = License;
+			path = ../License;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		43BC85B41DA31E2800FC04B0 /* TextCapture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43BC85C71DA31E2800FC04B0 /* Build configuration list for PBXNativeTarget "TextCapture" */;
+			buildPhases = (
+				43BC85B11DA31E2800FC04B0 /* Sources */,
+				43BC85B21DA31E2800FC04B0 /* Frameworks */,
+				43BC85B31DA31E2800FC04B0 /* Resources */,
+				43BC86201DA4429500FC04B0 /* Copy Dictionaries */,
+				43BC86391DA4434D00FC04B0 /* Copy Patterns */,
+				CF220F941F7D475600E24FBC /* Copy Extended Version Files */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TextCapture;
+			productName = TextCapture;
+			productReference = 43BC85B51DA31E2800FC04B0 /* TextCapture.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		43BC85AD1DA31E2800FC04B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Findo Inc.";
+				TargetAttributes = {
+					43BC85B41DA31E2800FC04B0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = UTURYJS693;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 43BC85B01DA31E2800FC04B0 /* Build configuration list for PBXProject "TextCapture" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 43BC85AC1DA31E2800FC04B0;
+			productRefGroup = 43BC85B61DA31E2800FC04B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				43BC85B41DA31E2800FC04B0 /* TextCapture */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		43BC85B31DA31E2800FC04B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFF18E0C1F713A37001A6DFF /* TextCapture.RTRProgressView.xib in Resources */,
+				CF2C54321DD1C132006B70FB /* AbbyyRtrSdk.license in Resources */,
+				43BC85C01DA31E2800FC04B0 /* Assets.xcassets in Resources */,
+				43BC85BE1DA31E2800FC04B0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CF220F941F7D475600E24FBC /* Copy Extended Version Files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Extended Version Files";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ASSET_DIR=${SRCROOT}/../assets\nPATTERNS_DIR=$ASSET_DIR/patterns\nDICTIONARIES_DIR=$ASSET_DIR/dictionaries\n\nPATTERNS_FILES_TO_COPY=(\"$PATTERNS_DIR/ChineseJapanese.rom\" \"$PATTERNS_DIR/KoreanSpecific.rom\")\n\nRUSSIAN_DICTIONARY=\"$DICTIONARIES_DIR/Russian.edc\"\n\nBUILT_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\nPATTERNS_DESTINATION_DIR=\"$BUILT_APP_DIR/Patterns\"\nDICTIONARIES_DESTINATION_DIR=\"$BUILT_APP_DIR/Dictionaries\"\n\nfor f in \"${PATTERNS_FILES_TO_COPY[@]}\"; do\nif [ -f \"$f\" ]; then\ncp -f \"$f\" \"$PATTERNS_DESTINATION_DIR\"\nfi\ndone\n\nif [ -f \"$RUSSIAN_DICTIONARY\" ]; then\ncp -f \"$RUSSIAN_DICTIONARY\" \"$DICTIONARIES_DESTINATION_DIR\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		43BC85B11DA31E2800FC04B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFF18E0B1F7101B9001A6DFF /* RTRProgressView.swift in Sources */,
+				43BC85DD1DA4330200FC04B0 /* RTRHexColor.swift in Sources */,
+				43BC85BB1DA31E2800FC04B0 /* RTRViewController.swift in Sources */,
+				43BC85D01DA326F200FC04B0 /* RTRSelectedAreaView.swift in Sources */,
+				43BC85B91DA31E2800FC04B0 /* RTRAppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		43BC85BC1DA31E2800FC04B0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43BC85BD1DA31E2800FC04B0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		43BC85C51DA31E2800FC04B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "TextCapture/RtrSamples-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		43BC85C61DA31E2800FC04B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "TextCapture/RtrSamples-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		43BC85C81DA31E2800FC04B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TextCapture/TextCapture.entitlements;
+				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = UTURYJS693;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					../libs,
+				);
+				INFOPLIST_FILE = TextCapture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xevo.dashpoc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5bbbe7c4-db7c-4027-bb95-dab85830e67b";
+				PROVISIONING_PROFILE_SPECIFIER = DashPOC;
+				SWIFT_OBJC_BRIDGING_HEADER = "TextCapture/RtrSamples-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		43BC85C91DA31E2800FC04B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TextCapture/TextCapture.entitlements;
+				DEFINES_MODULE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					../libs,
+				);
+				INFOPLIST_FILE = TextCapture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xevo.dashpoc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TextCapture/RtrSamples-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		43BC85B01DA31E2800FC04B0 /* Build configuration list for PBXProject "TextCapture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43BC85C51DA31E2800FC04B0 /* Debug */,
+				43BC85C61DA31E2800FC04B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43BC85C71DA31E2800FC04B0 /* Build configuration list for PBXNativeTarget "TextCapture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43BC85C81DA31E2800FC04B0 /* Debug */,
+				43BC85C91DA31E2800FC04B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 43BC85AD1DA31E2800FC04B0 /* Project object */;
+}
