@@ -24,12 +24,8 @@ class RootViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
     
     @IBOutlet weak var imageView: UIImageView!
     
-    
-    private var requests = [VNRequest]()
     private let session = AVCaptureSession()
-    
     private let visionSequenceHandler = VNSequenceRequestHandler()
-    private var lastObservation: VNRectangleObservation?
     private let visionDelegate = VisionDelegate()
     private let frameAnalyzer = VisionFrameAnalyzer.sharedAnalyzer
     

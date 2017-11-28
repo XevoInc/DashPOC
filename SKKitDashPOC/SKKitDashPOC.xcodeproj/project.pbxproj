@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04792B8B1FCDCAD3000B2C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04792B8A1FCDCAD3000B2C49 /* AppDelegate.swift */; };
+		04792B8D1FCDCAD3000B2C49 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 04792B8C1FCDCAD3000B2C49 /* Scene.sks */; };
+		04792B911FCDCAD3000B2C49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04792B901FCDCAD3000B2C49 /* ViewController.swift */; };
+		04792B941FCDCAD3000B2C49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04792B921FCDCAD3000B2C49 /* Main.storyboard */; };
+		04792B961FCDCAD3000B2C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04792B951FCDCAD3000B2C49 /* Assets.xcassets */; };
+		04792B991FCDCAD3000B2C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04792B971FCDCAD3000B2C49 /* LaunchScreen.storyboard */; };
+		04792BA41FCDCAD3000B2C49 /* SKKitDashPOCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04792BA31FCDCAD3000B2C49 /* SKKitDashPOCTests.swift */; };
+		04792BAF1FCDCAD3000B2C49 /* SKKitDashPOCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04792BAE1FCDCAD3000B2C49 /* SKKitDashPOCUITests.swift */; };
+		04792BC01FCE0B58000B2C49 /* bmw@3x.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 04792BBE1FCDD0A5000B2C49 /* bmw@3x.JPG */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04792BA01FCDCAD3000B2C49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04792B7F1FCDCAD3000B2C49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04792B861FCDCAD3000B2C49;
+			remoteInfo = SKKitDashPOC;
+		};
+		04792BAB1FCDCAD3000B2C49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04792B7F1FCDCAD3000B2C49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04792B861FCDCAD3000B2C49;
+			remoteInfo = SKKitDashPOC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04792B871FCDCAD3000B2C49 /* SKKitDashPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKKitDashPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04792B8A1FCDCAD3000B2C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04792B8C1FCDCAD3000B2C49 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
+		04792B8E1FCDCAD3000B2C49 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		04792B901FCDCAD3000B2C49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04792B931FCDCAD3000B2C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04792B951FCDCAD3000B2C49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04792B981FCDCAD3000B2C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04792B9A1FCDCAD3000B2C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04792B9F1FCDCAD3000B2C49 /* SKKitDashPOCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKKitDashPOCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04792BA31FCDCAD3000B2C49 /* SKKitDashPOCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKitDashPOCTests.swift; sourceTree = "<group>"; };
+		04792BA51FCDCAD3000B2C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04792BAA1FCDCAD3000B2C49 /* SKKitDashPOCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKKitDashPOCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04792BAE1FCDCAD3000B2C49 /* SKKitDashPOCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKitDashPOCUITests.swift; sourceTree = "<group>"; };
+		04792BB01FCDCAD3000B2C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04792BBE1FCDD0A5000B2C49 /* bmw@3x.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bmw@3x.JPG"; path = "SKKitDashPOC/bmw@3x.JPG"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04792B841FCDCAD3000B2C49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04792B9C1FCDCAD3000B2C49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04792BA71FCDCAD3000B2C49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04792B7E1FCDCAD3000B2C49 = {
+			isa = PBXGroup;
+			children = (
+				04792B891FCDCAD3000B2C49 /* SKKitDashPOC */,
+				04792BA21FCDCAD3000B2C49 /* SKKitDashPOCTests */,
+				04792BAD1FCDCAD3000B2C49 /* SKKitDashPOCUITests */,
+				04792B881FCDCAD3000B2C49 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04792B881FCDCAD3000B2C49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04792B871FCDCAD3000B2C49 /* SKKitDashPOC.app */,
+				04792B9F1FCDCAD3000B2C49 /* SKKitDashPOCTests.xctest */,
+				04792BAA1FCDCAD3000B2C49 /* SKKitDashPOCUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04792B891FCDCAD3000B2C49 /* SKKitDashPOC */ = {
+			isa = PBXGroup;
+			children = (
+				04792BBD1FCDD083000B2C49 /* Helpers */,
+				04792BBC1FCDD073000B2C49 /* Controllers */,
+				04792B8A1FCDCAD3000B2C49 /* AppDelegate.swift */,
+				04792B921FCDCAD3000B2C49 /* Main.storyboard */,
+				04792B951FCDCAD3000B2C49 /* Assets.xcassets */,
+				04792B971FCDCAD3000B2C49 /* LaunchScreen.storyboard */,
+				04792B9A1FCDCAD3000B2C49 /* Info.plist */,
+			);
+			path = SKKitDashPOC;
+			sourceTree = "<group>";
+		};
+		04792BA21FCDCAD3000B2C49 /* SKKitDashPOCTests */ = {
+			isa = PBXGroup;
+			children = (
+				04792BA31FCDCAD3000B2C49 /* SKKitDashPOCTests.swift */,
+				04792BA51FCDCAD3000B2C49 /* Info.plist */,
+			);
+			path = SKKitDashPOCTests;
+			sourceTree = "<group>";
+		};
+		04792BAD1FCDCAD3000B2C49 /* SKKitDashPOCUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04792BAE1FCDCAD3000B2C49 /* SKKitDashPOCUITests.swift */,
+				04792BB01FCDCAD3000B2C49 /* Info.plist */,
+			);
+			path = SKKitDashPOCUITests;
+			sourceTree = "<group>";
+		};
+		04792BBC1FCDD073000B2C49 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				04792B901FCDCAD3000B2C49 /* ViewController.swift */,
+				04792B8E1FCDCAD3000B2C49 /* Scene.swift */,
+				04792B8C1FCDCAD3000B2C49 /* Scene.sks */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		04792BBD1FCDD083000B2C49 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				04792BBE1FCDD0A5000B2C49 /* bmw@3x.JPG */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04792B861FCDCAD3000B2C49 /* SKKitDashPOC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04792BB31FCDCAD3000B2C49 /* Build configuration list for PBXNativeTarget "SKKitDashPOC" */;
+			buildPhases = (
+				04792B831FCDCAD3000B2C49 /* Sources */,
+				04792B841FCDCAD3000B2C49 /* Frameworks */,
+				04792B851FCDCAD3000B2C49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SKKitDashPOC;
+			productName = SKKitDashPOC;
+			productReference = 04792B871FCDCAD3000B2C49 /* SKKitDashPOC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04792B9E1FCDCAD3000B2C49 /* SKKitDashPOCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04792BB61FCDCAD3000B2C49 /* Build configuration list for PBXNativeTarget "SKKitDashPOCTests" */;
+			buildPhases = (
+				04792B9B1FCDCAD3000B2C49 /* Sources */,
+				04792B9C1FCDCAD3000B2C49 /* Frameworks */,
+				04792B9D1FCDCAD3000B2C49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04792BA11FCDCAD3000B2C49 /* PBXTargetDependency */,
+			);
+			name = SKKitDashPOCTests;
+			productName = SKKitDashPOCTests;
+			productReference = 04792B9F1FCDCAD3000B2C49 /* SKKitDashPOCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04792BA91FCDCAD3000B2C49 /* SKKitDashPOCUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04792BB91FCDCAD3000B2C49 /* Build configuration list for PBXNativeTarget "SKKitDashPOCUITests" */;
+			buildPhases = (
+				04792BA61FCDCAD3000B2C49 /* Sources */,
+				04792BA71FCDCAD3000B2C49 /* Frameworks */,
+				04792BA81FCDCAD3000B2C49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04792BAC1FCDCAD3000B2C49 /* PBXTargetDependency */,
+			);
+			name = SKKitDashPOCUITests;
+			productName = SKKitDashPOCUITests;
+			productReference = 04792BAA1FCDCAD3000B2C49 /* SKKitDashPOCUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04792B7F1FCDCAD3000B2C49 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = Xevo;
+				TargetAttributes = {
+					04792B861FCDCAD3000B2C49 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Manual;
+					};
+					04792B9E1FCDCAD3000B2C49 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 04792B861FCDCAD3000B2C49;
+					};
+					04792BA91FCDCAD3000B2C49 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 04792B861FCDCAD3000B2C49;
+					};
+				};
+			};
+			buildConfigurationList = 04792B821FCDCAD3000B2C49 /* Build configuration list for PBXProject "SKKitDashPOC" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04792B7E1FCDCAD3000B2C49;
+			productRefGroup = 04792B881FCDCAD3000B2C49 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04792B861FCDCAD3000B2C49 /* SKKitDashPOC */,
+				04792B9E1FCDCAD3000B2C49 /* SKKitDashPOCTests */,
+				04792BA91FCDCAD3000B2C49 /* SKKitDashPOCUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04792B851FCDCAD3000B2C49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04792B8D1FCDCAD3000B2C49 /* Scene.sks in Resources */,
+				04792B991FCDCAD3000B2C49 /* LaunchScreen.storyboard in Resources */,
+				04792BC01FCE0B58000B2C49 /* bmw@3x.JPG in Resources */,
+				04792B961FCDCAD3000B2C49 /* Assets.xcassets in Resources */,
+				04792B941FCDCAD3000B2C49 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04792B9D1FCDCAD3000B2C49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04792BA81FCDCAD3000B2C49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04792B831FCDCAD3000B2C49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04792B911FCDCAD3000B2C49 /* ViewController.swift in Sources */,
+				04792B8B1FCDCAD3000B2C49 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04792B9B1FCDCAD3000B2C49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04792BA41FCDCAD3000B2C49 /* SKKitDashPOCTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04792BA61FCDCAD3000B2C49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04792BAF1FCDCAD3000B2C49 /* SKKitDashPOCUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04792BA11FCDCAD3000B2C49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04792B861FCDCAD3000B2C49 /* SKKitDashPOC */;
+			targetProxy = 04792BA01FCDCAD3000B2C49 /* PBXContainerItemProxy */;
+		};
+		04792BAC1FCDCAD3000B2C49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04792B861FCDCAD3000B2C49 /* SKKitDashPOC */;
+			targetProxy = 04792BAB1FCDCAD3000B2C49 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04792B921FCDCAD3000B2C49 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04792B931FCDCAD3000B2C49 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04792B971FCDCAD3000B2C49 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04792B981FCDCAD3000B2C49 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04792BB11FCDCAD3000B2C49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04792BB21FCDCAD3000B2C49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04792BB41FCDCAD3000B2C49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = UTURYJS693;
+				INFOPLIST_FILE = SKKitDashPOC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xevo.dashpoc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5bbbe7c4-db7c-4027-bb95-dab85830e67b";
+				PROVISIONING_PROFILE_SPECIFIER = DashPOC;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04792BB51FCDCAD3000B2C49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = SKKitDashPOC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xevo.dashpoc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		04792BB71FCDCAD3000B2C49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UTURYJS693;
+				INFOPLIST_FILE = SKKitDashPOCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Xevo.SKKitDashPOCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SKKitDashPOC.app/SKKitDashPOC";
+			};
+			name = Debug;
+		};
+		04792BB81FCDCAD3000B2C49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UTURYJS693;
+				INFOPLIST_FILE = SKKitDashPOCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Xevo.SKKitDashPOCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SKKitDashPOC.app/SKKitDashPOC";
+			};
+			name = Release;
+		};
+		04792BBA1FCDCAD3000B2C49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UTURYJS693;
+				INFOPLIST_FILE = SKKitDashPOCUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Xevo.SKKitDashPOCUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SKKitDashPOC;
+			};
+			name = Debug;
+		};
+		04792BBB1FCDCAD3000B2C49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UTURYJS693;
+				INFOPLIST_FILE = SKKitDashPOCUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Xevo.SKKitDashPOCUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SKKitDashPOC;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04792B821FCDCAD3000B2C49 /* Build configuration list for PBXProject "SKKitDashPOC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04792BB11FCDCAD3000B2C49 /* Debug */,
+				04792BB21FCDCAD3000B2C49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04792BB31FCDCAD3000B2C49 /* Build configuration list for PBXNativeTarget "SKKitDashPOC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04792BB41FCDCAD3000B2C49 /* Debug */,
+				04792BB51FCDCAD3000B2C49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04792BB61FCDCAD3000B2C49 /* Build configuration list for PBXNativeTarget "SKKitDashPOCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04792BB71FCDCAD3000B2C49 /* Debug */,
+				04792BB81FCDCAD3000B2C49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04792BB91FCDCAD3000B2C49 /* Build configuration list for PBXNativeTarget "SKKitDashPOCUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04792BBA1FCDCAD3000B2C49 /* Debug */,
+				04792BBB1FCDCAD3000B2C49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04792B7F1FCDCAD3000B2C49 /* Project object */;
+}

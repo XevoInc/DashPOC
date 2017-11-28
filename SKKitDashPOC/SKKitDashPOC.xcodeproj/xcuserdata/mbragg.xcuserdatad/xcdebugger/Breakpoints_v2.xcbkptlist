@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SKKitDashPOC/Controllers/ViewController.swift"
+            timestampString = "533599411.21999"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SKKitDashPOC.ViewController.touchesBegan(Swift.Set&lt;__ObjC.UITouch&gt;, with: Swift.Optional&lt;__ObjC.UIEvent&gt;) -&gt; ()"
+                  moduleName = "SKKitDashPOC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mbragg/Documents/Development/Git/DashPOC/SKKitDashPOC/SKKitDashPOC/Controllers/ViewController.swift"
+                  timestampString = "533590077.384237"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "1556">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.String) -&gt; () in SKKitDashPOC.ViewController.touchesBegan(Swift.Set&lt;__ObjC.UITouch&gt;, with: Swift.Optional&lt;__ObjC.UIEvent&gt;) -&gt; ()"
+                  moduleName = "SKKitDashPOC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mbragg/Documents/Development/Git/DashPOC/SKKitDashPOC/SKKitDashPOC/Controllers/ViewController.swift"
+                  timestampString = "533590077.385968"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SKKitDashPOC/Controllers/ViewController.swift"
+            timestampString = "533599411.220408"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SKKitDashPOC/Controllers/ViewController.swift"
+            timestampString = "533599411.220667"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SKKitDashPOC/Controllers/ViewController.swift"
+            timestampString = "533599411.220898"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "view(_:nodeFor:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SKKitDashPOC/Controllers/ViewController.swift"
+            timestampString = "533599411.221127"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SKKitDashPOC.ViewController.touchesBegan(Swift.Set&lt;__ObjC.UITouch&gt;, with: Swift.Optional&lt;__ObjC.UIEvent&gt;) -&gt; ()"
+                  moduleName = "SKKitDashPOC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mbragg/Documents/Development/Git/DashPOC/SKKitDashPOC/SKKitDashPOC/Controllers/ViewController.swift"
+                  timestampString = "533590077.389824"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "1380">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in SKKitDashPOC.ViewController.touchesBegan(Swift.Set&lt;__ObjC.UITouch&gt;, with: Swift.Optional&lt;__ObjC.UIEvent&gt;) -&gt; ()"
+                  moduleName = "SKKitDashPOC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mbragg/Documents/Development/Git/DashPOC/SKKitDashPOC/SKKitDashPOC/Controllers/ViewController.swift"
+                  timestampString = "533590077.391185"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
