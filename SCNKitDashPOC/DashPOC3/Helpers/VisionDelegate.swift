@@ -20,11 +20,16 @@ class VisionDelegate: NSObject {
     lazy var findRectangleRequest: VNDetectRectanglesRequest = {
         
         let recRequest = VNDetectRectanglesRequest(completionHandler: self.handleRectangleDetect)
+        recRequest.maximumObservations = 1
         
-        //iPad screen 7.75 x 5.75 (.74) frame 9.5 x 6.75 (.71)
+        //new iPad screen 7.75 x 5.75 (.74) frame 9.5 x 6.75 (.71)
         recRequest.minimumAspectRatio = 0.73
         recRequest.maximumAspectRatio = 0.75
-        recRequest.maximumObservations = 1
+        
+        //iPad Pro screen 10.25 x 7.75 (.63)  frame 12.0 x 8.75 (.73)
+        //recRequest.minimumAspectRatio = 0.72
+        //recRequest.maximumAspectRatio = 0.74
+        
         return recRequest
     }()
     
