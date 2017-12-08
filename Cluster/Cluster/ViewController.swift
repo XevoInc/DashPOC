@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, CAAnimationDelegate {
 
-    //@IBOutlet weak var tempGauge: UIImageView!
+    @IBOutlet weak var tempGauge: UIImageView!
     @IBOutlet weak var fuelGauge: UIImageView!
     @IBOutlet weak var speedometer: MTCircularSlider!
     @IBOutlet weak var mphLabel: UILabel!
@@ -37,6 +37,8 @@ class ViewController: UIViewController, CAAnimationDelegate {
     
     private var clockTimer: Timer?
     private var fuelLevel: Int = 0
+    private var engineIsOn = false
+    private var tempLevel: Int = 0
     
     enum Gear {
         case park
@@ -55,33 +57,20 @@ class ViewController: UIViewController, CAAnimationDelegate {
         updateTime()
         startClock()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(gesture:)))
+        tap.numberOfTapsRequired = 2
+        self.view.addGestureRecognizer(tap)
+        
         turnOff(animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.turnOn(animated: true)
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
-            
-            //self.flashLights()
-            //self.lights(areOn: true)
-            //self.driversDoor(isUnlocked: true)
-            //self.passengerDoors(areUnlocked: true)
-            //self.doors(areUnlocked: true)
-            //self.fuelLevel(10)
-            //self.setSpeed(speed: 50)
-            //self.odometer(mileage: 52014.6)
-            //self.highBeam(isOn: true)
-        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.turnOff(animated: false)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -95,7 +84,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         let interval: TimeInterval = animated ? 0.5 : 0.0
         UIView.animate(withDuration: interval, animations: {
             
-            //self.tempGauge.alpha = 0.0
+            self.tempGauge.alpha = 1.0
             self.fuelGauge.alpha = 1.0
             self.speedometer.alpha = 1.0
             self.mphLabel.alpha = 1.0
@@ -124,6 +113,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
             
             DispatchQueue.main.async {
                 self.initFuel()
+                self.initTemp()
                 self.initSpeedometer()
             }
             
@@ -142,10 +132,10 @@ class ViewController: UIViewController, CAAnimationDelegate {
                     self.tireIndicatorOn.alpha = 0.0
                     self.brakeIndicatorOn.alpha = 0.0
                     self.engineIndicatorOn.alpha = 0.0
-                    self.oilIndicatorOn.alpha = 0.0
+                    //self.oilIndicatorOn.alpha = 0.0
                     //self.timeLabel.alpha = 0.0
                     //self.pmLabel.alpha = 0.0
-                    self.parkGearOn.alpha = 0.0
+                    //self.parkGearOn.alpha = 0.0
                     self.reverseGearOn.alpha = 0.0
                     self.neutralGearOn.alpha = 0.0
                     self.driveGearOn.alpha = 0.0
@@ -157,7 +147,6 @@ class ViewController: UIViewController, CAAnimationDelegate {
                     //self.miLabel.alpha = 0.0
                     
                 }) { (complete) in
-                    self.setGear(gear: .park)
                 }
             })
         }
@@ -168,7 +157,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         let interval: TimeInterval = animated ? 0.5 : 0.0
         UIView.animate(withDuration: interval, animations: {
             
-            //self.tempGauge.alpha = 0.0
+            self.tempGauge.alpha = 0.0
             self.fuelGauge.alpha = 0.0
             self.speedometer.alpha = 0.0
             self.mphLabel.alpha = 0.0
@@ -194,43 +183,18 @@ class ViewController: UIViewController, CAAnimationDelegate {
             self.miLabel.alpha = 0.0
             
         }) { (complete) in
+            
             self.speedometer.value = 0.0
-        }
-    }
-    
-    private func initFuel() {
-        
-        if (fuelLevel < 20)
-        {
-            fuelLevel += 1
+            self.speedometer.removeTarget(self, action: #selector(self.speedometerChanged(_:)), for: .valueChanged)
+            self.speedLabel.text = "0"
             
-            let image = UIImage(named: "fuel_gauge_fill_\(fuelLevel)")
-            self.fuelGauge.image = image
+            self.fuelLevel = 0
+            let fuelImage = UIImage(named: "fuel_gauge_fill_1_startup")
+            self.fuelGauge.image = fuelImage
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                self.initFuel()
-            })
-        }
-    }
-    
-    private var direction: Float = 0.05
-    var initSpeedometerTimer: Timer?
-    
-    func initSpeedometer() {
-        initSpeedometerTimer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(update), userInfo: nil, repeats: true)
-    }
-    
-    @objc func update() {
-        
-        speedometer.value += direction
-        
-        if (speedometer.value >= speedometer.valueMaximum) {
-            direction = -direction
-        }
-        else if (speedometer.value <= speedometer.valueMinimum)
-        {
-            initSpeedometerTimer?.invalidate()
-            initSpeedometerTimer = nil
+            self.tempLevel = 0
+            let tempImage = UIImage(named: "temp_gauge_fill_1")
+            self.tempGauge.image = tempImage
         }
     }
     
@@ -351,7 +315,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         }
     }
     
-    @IBAction func speedometerChanged(_ sender: MTCircularSlider) {
+    @objc func speedometerChanged(_ sender: MTCircularSlider) {
         speedLabel.text = String(Int(speedometer.value * 120))
     }
     
@@ -391,6 +355,82 @@ class ViewController: UIViewController, CAAnimationDelegate {
         
         self.timeLabel.text = "\(displayHour):" + minutesString
         self.pmLabel.text = hour < 13 ? "AM" : "PM"
+    }
+    
+    @objc private func handleTap(gesture: UITapGestureRecognizer) {
+        
+        if (self.engineIsOn)
+        {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.engineIsOn = false
+                self.turnOff(animated: true)
+            })
+        }
+        else
+        {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.engineIsOn = true
+                self.turnOn(animated: true)
+            })
+        }
+    }
+    
+    private func initFuel() {
+        
+        if (fuelLevel < 20)
+        {
+            fuelLevel += 1
+            
+            var imageName = "fuel_gauge_fill_\(fuelLevel)"
+            if (fuelLevel < 4) {
+                imageName = imageName + "_startup"
+            }
+            
+            let image = UIImage(named: imageName)
+            self.fuelGauge.image = image
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.initFuel()
+            })
+        }
+    }
+    
+    private func initTemp() {
+        
+        if (tempLevel < 10)
+        {
+            tempLevel += 1
+            
+            let imageName = "temp_gauge_fill_\(tempLevel)"
+            let image = UIImage(named: imageName)
+            self.tempGauge.image = image
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.initTemp()
+            })
+        }
+    }
+    
+    private var increment: Float = 0.009
+    private var initSpeedometerTimer = Timer()
+    
+    private func initSpeedometer() {
+        initSpeedometerTimer = Timer.scheduledTimer(timeInterval: 0.0001, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+    }
+    
+    @objc func update() {
+        
+        speedometer.value += increment
+        
+        if (speedometer.value >= speedometer.valueMaximum) {
+            increment = -increment
+        }
+        else if (speedometer.value <= speedometer.valueMinimum)
+        {
+            initSpeedometerTimer.invalidate()
+            speedometer.addTarget(self, action: #selector(speedometerChanged(_:)), for: .valueChanged)
+            increment = -increment
+        }
     }
 
     // MARK: - Fonts
