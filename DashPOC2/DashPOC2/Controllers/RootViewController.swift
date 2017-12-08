@@ -100,7 +100,9 @@ class RootViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
             self.startTracking = true
         }
         else {
-            self.componentSelected(tapGesture: tapGesture)
+            //self.componentSelected(tapGesture: tapGesture)
+            self.startTracking = false
+            self.imageView.isHidden = true
         }
     }
     
