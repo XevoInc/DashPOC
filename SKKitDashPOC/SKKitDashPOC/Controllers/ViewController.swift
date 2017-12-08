@@ -26,12 +26,13 @@ class ViewController: UIViewController, ARSKViewDelegate {
         sceneView.delegate = self
         
         // Show statistics such as fps and node count
-        sceneView.showsFPS = true
-        sceneView.showsNodeCount = true
+        //sceneView.showsFPS = true
+        //sceneView.showsNodeCount = true
         
         // Load the SKScene from 'Scene.sks'
         if let scene = SKScene(fileNamed: "Scene") {
             sceneView.presentScene(scene)
+            scene.scaleMode = .resizeFill
         }
         
         frameView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 400, height: 300)))
@@ -88,15 +89,15 @@ class ViewController: UIViewController, ARSKViewDelegate {
             
             if let name = node.name {
                 
-                if (name == "gas") {
+                if (name == "oil") {
                     launchURL(name: node.name!)
                 }
-                else if (name == "oil") {
-                    launchURL(name: node.name!)
-                }
-                else if (name == "belt") {
-                    launchURL(name: node.name!)
-                }
+//                else if (name == "gas") {
+//                    launchURL(name: node.name!)
+//                }
+//                else if (name == "belt") {
+//                    launchURL(name: node.name!)
+//                }
             }
         }
         else
@@ -107,9 +108,9 @@ class ViewController: UIViewController, ARSKViewDelegate {
     
     func launchURL(name: String) {
         
-        let string: NSString = "https://search.yahoo.com/search?p=brakes&fr=yfp-hrmob&fr2=p%3Afp%2Cm%3Asb&.tsrc=yfp-hrmob&fp=1&toggle=1&cop=mss&ei=UTF-8"
-        let finalString = string.replacingOccurrences(of: "brakes", with: name)
-        let url = URL(string: finalString)
+        let string: NSString = "https://www.youtube.com/watch?v=OjfceD8jibY"
+        //let finalString = string.replacingOccurrences(of: "brakes", with: name)
+        let url = URL(string: string as String)
         print("\(url!)")
         
         if #available(iOS 10, *) {
@@ -128,32 +129,44 @@ class ViewController: UIViewController, ARSKViewDelegate {
         if (!self.dashLoaded) {
             
             //Create dash noce
-            dashNode = SKSpriteNode(imageNamed: "bmw@3x.JPG")
-            dashNode?.alpha = 0.8
+            dashNode = SKSpriteNode(imageNamed: "cluster_on_small")
+            dashNode?.alpha = 1.0
+            dashNode?.name = "cluster"
             
-            let gas = SKShapeNode(circleOfRadius: 9 )
-            gas.position = CGPoint(x: -71, y: -10)
-            gas.strokeColor = SKColor.clear
-            gas.glowWidth = 1.0
-            gas.fillColor = SKColor.clear
-            gas.name = "gas"
-            dashNode?.addChild(gas)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                
+                self.dashNode?.texture = SKTexture(imageNamed: "cluster_on_oil_small")
+//                let oilNode = SKSpriteNode(imageNamed: "ic_indicator_oil_on_small")
+//                oilNode.alpha = 1.0
+//                oilNode.name = "cluster_oil_on"
+//                oilNode.position = CGPoint(x: -38, y: -30)
+//                self.dashNode?.addChild(oilNode)
+            })
             
-            let oil = SKShapeNode(circleOfRadius: 9 )
-            oil.position = CGPoint(x: 67, y: -9)
+            
+//            let gas = SKShapeNode(circleOfRadius: 9 )
+//            gas.position = CGPoint(x: -71, y: -10)
+//            gas.strokeColor = SKColor.green
+//            gas.glowWidth = 3.0
+//            gas.fillColor = SKColor.green
+//            gas.name = "gas"
+//            dashNode?.addChild(gas)
+//
+//            let oil = SKShapeNode(circleOfRadius: 9 )
+//            oil.position = CGPoint(x: 67, y: -9)
+//            oil.strokeColor = SKColor.green
+//            oil.glowWidth = 3.0
+//            oil.fillColor = SKColor.green
+//            oil.name = "oil"
+//            dashNode?.addChild(oil)
+//
+            let oil = SKShapeNode(rectOf: CGSize(width: 38, height: 38))
+            oil.position = CGPoint(x: -38, y: -37)
             oil.strokeColor = SKColor.clear
             oil.glowWidth = 1.0
             oil.fillColor = SKColor.clear
             oil.name = "oil"
             dashNode?.addChild(oil)
-            
-            let seatBelt = SKShapeNode(rectOf: CGSize(width: 4, height: 6))
-            seatBelt.position = CGPoint(x: 63, y: -24)
-            seatBelt.strokeColor = SKColor.clear
-            seatBelt.glowWidth = 1.0
-            seatBelt.fillColor = SKColor.clear
-            seatBelt.name = "seatbelt"
-            dashNode?.addChild(seatBelt)
             
             self.dashLoaded = true
             return dashNode
