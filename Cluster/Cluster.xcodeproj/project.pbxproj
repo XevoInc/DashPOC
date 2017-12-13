@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0427F8551FDCF7DC007D8BF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AE15701FD0F620001A251C /* ViewController.swift */; };
+		0427F8621FDFA3B5007D8BF4 /* INTUSpringSolver.c in Sources */ = {isa = PBXBuildFile; fileRef = 0427F85A1FDFA3B5007D8BF4 /* INTUSpringSolver.c */; };
+		0427F8631FDFA3B5007D8BF4 /* INTUInterpolationFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0427F85D1FDFA3B5007D8BF4 /* INTUInterpolationFunctions.m */; };
+		0427F8641FDFA3B5007D8BF4 /* INTUAnimationEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0427F85E1FDFA3B5007D8BF4 /* INTUAnimationEngine.m */; };
+		0427F8651FDFA3B5007D8BF4 /* INTUEasingFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0427F8601FDFA3B5007D8BF4 /* INTUEasingFunctions.m */; };
 		04657EC31FD1215B003E47E5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04AE157A1FD0F620001A251C /* Info.plist */; };
 		04657EC71FD12489003E47E5 /* Eurostile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04657EC61FD12489003E47E5 /* Eurostile.ttf */; };
 		04657ED51FD8F1DC003E47E5 /* MTCircularSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04657ED41FD8F1DC003E47E5 /* MTCircularSlider.swift */; };
 		04AE156F1FD0F620001A251C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AE156E1FD0F620001A251C /* AppDelegate.swift */; };
-		04AE15711FD0F620001A251C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AE15701FD0F620001A251C /* ViewController.swift */; };
 		04AE15741FD0F620001A251C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AE15721FD0F620001A251C /* Main.storyboard */; };
 		04AE15761FD0F620001A251C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04AE15751FD0F620001A251C /* Assets.xcassets */; };
 		04AE15791FD0F620001A251C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AE15771FD0F620001A251C /* LaunchScreen.storyboard */; };
@@ -38,6 +42,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0427F8581FDFA3B5007D8BF4 /* INTUSpringSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTUSpringSolver.h; sourceTree = "<group>"; };
+		0427F8591FDFA3B5007D8BF4 /* INTUVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTUVector.h; sourceTree = "<group>"; };
+		0427F85A1FDFA3B5007D8BF4 /* INTUSpringSolver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = INTUSpringSolver.c; sourceTree = "<group>"; };
+		0427F85B1FDFA3B5007D8BF4 /* INTUAnimationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTUAnimationEngine.h; sourceTree = "<group>"; };
+		0427F85C1FDFA3B5007D8BF4 /* INTUEasingFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTUEasingFunctions.h; sourceTree = "<group>"; };
+		0427F85D1FDFA3B5007D8BF4 /* INTUInterpolationFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INTUInterpolationFunctions.m; sourceTree = "<group>"; };
+		0427F85E1FDFA3B5007D8BF4 /* INTUAnimationEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INTUAnimationEngine.m; sourceTree = "<group>"; };
+		0427F85F1FDFA3B5007D8BF4 /* INTUAnimationEngineDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTUAnimationEngineDefines.h; sourceTree = "<group>"; };
+		0427F8601FDFA3B5007D8BF4 /* INTUEasingFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INTUEasingFunctions.m; sourceTree = "<group>"; };
+		0427F8611FDFA3B5007D8BF4 /* INTUInterpolationFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTUInterpolationFunctions.h; sourceTree = "<group>"; };
+		0427F8661FDFA3F3007D8BF4 /* Cluster-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cluster-Bridging-Header.h"; sourceTree = "<group>"; };
 		04657EC61FD12489003E47E5 /* Eurostile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Eurostile.ttf; sourceTree = "<group>"; };
 		04657ED41FD8F1DC003E47E5 /* MTCircularSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCircularSlider.swift; sourceTree = "<group>"; };
 		04AE156B1FD0F620001A251C /* Cluster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cluster.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,9 +96,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0427F8561FDFA3B5007D8BF4 /* INTUAnimationEngine */ = {
+			isa = PBXGroup;
+			children = (
+				0427F8571FDFA3B5007D8BF4 /* SpringSolver */,
+				0427F85B1FDFA3B5007D8BF4 /* INTUAnimationEngine.h */,
+				0427F85C1FDFA3B5007D8BF4 /* INTUEasingFunctions.h */,
+				0427F85D1FDFA3B5007D8BF4 /* INTUInterpolationFunctions.m */,
+				0427F85E1FDFA3B5007D8BF4 /* INTUAnimationEngine.m */,
+				0427F85F1FDFA3B5007D8BF4 /* INTUAnimationEngineDefines.h */,
+				0427F8601FDFA3B5007D8BF4 /* INTUEasingFunctions.m */,
+				0427F8611FDFA3B5007D8BF4 /* INTUInterpolationFunctions.h */,
+			);
+			path = INTUAnimationEngine;
+			sourceTree = "<group>";
+		};
+		0427F8571FDFA3B5007D8BF4 /* SpringSolver */ = {
+			isa = PBXGroup;
+			children = (
+				0427F8581FDFA3B5007D8BF4 /* INTUSpringSolver.h */,
+				0427F8591FDFA3B5007D8BF4 /* INTUVector.h */,
+				0427F85A1FDFA3B5007D8BF4 /* INTUSpringSolver.c */,
+			);
+			path = SpringSolver;
+			sourceTree = "<group>";
+		};
 		04657EC81FD78063003E47E5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0427F8561FDFA3B5007D8BF4 /* INTUAnimationEngine */,
 				04657ED41FD8F1DC003E47E5 /* MTCircularSlider.swift */,
 			);
 			path = Helpers;
@@ -116,6 +157,7 @@
 				04AE156E1FD0F620001A251C /* AppDelegate.swift */,
 				04AE15701FD0F620001A251C /* ViewController.swift */,
 				04AE15721FD0F620001A251C /* Main.storyboard */,
+				0427F8661FDFA3F3007D8BF4 /* Cluster-Bridging-Header.h */,
 				04AE159C1FD11271001A251C /* Resources */,
 				04AE15751FD0F620001A251C /* Assets.xcassets */,
 				04AE15771FD0F620001A251C /* LaunchScreen.storyboard */,
@@ -296,9 +338,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04AE15711FD0F620001A251C /* ViewController.swift in Sources */,
+				0427F8641FDFA3B5007D8BF4 /* INTUAnimationEngine.m in Sources */,
+				0427F8551FDCF7DC007D8BF4 /* ViewController.swift in Sources */,
+				0427F8621FDFA3B5007D8BF4 /* INTUSpringSolver.c in Sources */,
 				04AE156F1FD0F620001A251C /* AppDelegate.swift in Sources */,
 				04657ED51FD8F1DC003E47E5 /* MTCircularSlider.swift in Sources */,
+				0427F8631FDFA3B5007D8BF4 /* INTUInterpolationFunctions.m in Sources */,
+				0427F8651FDFA3B5007D8BF4 /* INTUEasingFunctions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +518,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5bbbe7c4-db7c-4027-bb95-dab85830e67b";
 				PROVISIONING_PROFILE_SPECIFIER = DashPOC;
+				SWIFT_OBJC_BRIDGING_HEADER = "./Cluster/Cluster-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -488,6 +535,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.xevo.dashpoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "./Cluster/Cluster-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

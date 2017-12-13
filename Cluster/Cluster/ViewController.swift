@@ -12,7 +12,8 @@ class ViewController: UIViewController, CAAnimationDelegate {
 
     @IBOutlet weak var tempGauge: UIImageView!
     @IBOutlet weak var fuelGauge: UIImageView!
-    @IBOutlet weak var speedometer: MTCircularSlider!
+    @IBOutlet weak var speedometer: UIImageView!
+    @IBOutlet weak var speedometerMask: UIImageView!
     @IBOutlet weak var mphLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var headlightsOn: UIImageView!
@@ -39,6 +40,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
     private var fuelLevel: Int = 0
     private var engineIsOn = false
     private var tempLevel: Int = 0
+    private var speed: Int = 0
     
     enum Gear {
         case park
@@ -67,6 +69,8 @@ class ViewController: UIViewController, CAAnimationDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.turnOn(animated: true)
+        //self.testSpeed()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -77,10 +81,31 @@ class ViewController: UIViewController, CAAnimationDelegate {
         return true
     }
     
+    // Mark: - Test
+    func testSpeed() {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            self.setSpeed(speed: 90)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+            self.setSpeed(speed: 30)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 11.0) {
+            self.setSpeed(speed: 105)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 14.0) {
+            self.setSpeed(speed: 0)
+        }
+    }
+    
     // MARK: - Run Modes
     
     func turnOn(animated: Bool) {
         
+        self.engineIsOn = true
         let interval: TimeInterval = animated ? 0.5 : 0.0
         UIView.animate(withDuration: interval, animations: {
             
@@ -154,6 +179,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
     
     func turnOff(animated: Bool) {
         
+        self.engineIsOn = false
         let interval: TimeInterval = animated ? 0.5 : 0.0
         UIView.animate(withDuration: interval, animations: {
             
@@ -184,8 +210,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
             
         }) { (complete) in
             
-            self.speedometer.value = 0.0
-            self.speedometer.removeTarget(self, action: #selector(self.speedometerChanged(_:)), for: .valueChanged)
+            self.setSpeed(speed: self.speedMinimum)
             self.speedLabel.text = "0"
             
             self.fuelLevel = 0
@@ -300,24 +325,91 @@ class ViewController: UIViewController, CAAnimationDelegate {
     
     // MARK: - Set Speed
 
-    func setSpeed(speed: Int) {
+    private var maskSwitchoverSpeed: Int = 60
+    private var speedMinimum: Int = 0
+    private var speedMaximum: Int  = 120
+    private var speedTimer = Timer()
+    
+    func setSpeed(speed newSpeed: Int) {
         
-        let value: Float = Float(speed) / Float(120.0)
-        speedometer.value = value
+        if (self.speed == newSpeed) {return}
         
-        if (speed == 0)
+        let startAngle = angleForSpeed(speed: self.speed)
+        let stopAngle = angleForSpeed(speed: newSpeed)
+        
+        var switchoverPct: Float = 0.0
+        var range: Float?
+        if (self.speed < maskSwitchoverSpeed && newSpeed > maskSwitchoverSpeed ||
+            self.speed > maskSwitchoverSpeed && newSpeed < maskSwitchoverSpeed)
         {
-            setGear(gear: .park)
+            if (self.speed < maskSwitchoverSpeed)
+            {
+                range = Float(maskSwitchoverSpeed - self.speed)
+                switchoverPct = Float(range! / Float(newSpeed - self.speed))
+            }
+            else
+            {
+                range = Float(self.speed - maskSwitchoverSpeed)
+                switchoverPct = Float(range! / Float(self.speed - newSpeed))
+            }
         }
-        else
-        {
-            setGear(gear: .drive)
-        }
+        
+        speedometer.rotateWithAnimation(startAngle: startAngle°, stopAngle: stopAngle°, duration: 1.0, delegate: self)
+        _ = INTUAnimationEngine.animate(withDuration: 1.0, delay: 0.0, animations: { (progress) in
+            
+            if (newSpeed > 0)
+            {
+                self.setGear(gear: .drive)
+            }
+
+            self.updateSpeedLabel(progress: Float(progress), startSpeed: self.speed, endSpeed: newSpeed, maskSwitch: switchoverPct)
+            
+        }, completion: { (complete) in
+            
+            self.speed = newSpeed
+            self.speedLabel.text = String(describing: Int(newSpeed))
+            self.maskSet = false
+            
+            if (newSpeed == 0)
+            {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                    self.setGear(gear: .park)
+                })
+            }
+        })
     }
     
-    @objc func speedometerChanged(_ sender: MTCircularSlider) {
-        speedLabel.text = String(Int(speedometer.value * 120))
+    var maskSet = false
+    func updateSpeedLabel(progress: Float, startSpeed: Int, endSpeed: Int, maskSwitch: Float) {
+        
+        let increment = startSpeed < endSpeed
+        let range = abs(startSpeed - endSpeed)
+        var speedInc: Int?
+        
+        if (increment) {
+            speedInc = Int(roundf(progress * Float(range)))
+        } else {
+            speedInc = -Int(roundf(progress * Float(range)))
+        }
+        
+        print("\(speedInc!)")
+        
+        let speed2 = startSpeed + speedInc!
+        self.speedLabel.text = String(describing: speed2)
+        
+        if (maskSwitch > 0.0 && !maskSet)
+        {
+                if (speed2 > self.maskSwitchoverSpeed - 10 && speed2 < self.maskSwitchoverSpeed && increment) {
+                    self.speedometerMask.image = UIImage(named: "mask_over_60")
+                    self.maskSet = true
+                }
+                else if (speed2 < self.maskSwitchoverSpeed && speed2 > self.maskSwitchoverSpeed - 10 && !increment) {
+                    self.speedometerMask.image = UIImage(named: "mask_under_60")
+                    self.maskSet = true
+                }
+        }
     }
+
     
     // MARK: - Setup
 
@@ -362,14 +454,12 @@ class ViewController: UIViewController, CAAnimationDelegate {
         if (self.engineIsOn)
         {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.engineIsOn = false
                 self.turnOff(animated: true)
             })
         }
         else
         {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.engineIsOn = true
                 self.turnOn(animated: true)
             })
         }
@@ -410,28 +500,49 @@ class ViewController: UIViewController, CAAnimationDelegate {
             })
         }
     }
-    
-    private var increment: Float = 0.009
-    private var initSpeedometerTimer = Timer()
-    
+
+    private var speedometerInit = false
     private func initSpeedometer() {
-        initSpeedometerTimer = Timer.scheduledTimer(timeInterval: 0.0001, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        
+        speedometerMask.image = UIImage(named: "mask_under_60")
+        
+        let startAngle =  angleForSpeed(speed: speed)
+        speed = speedMaximum
+        let stopAngle =  angleForSpeed(speed: speed)
+        
+        speedometerInit = true
+        speedometer.rotateWithAnimation(startAngle: startAngle°, stopAngle: stopAngle°, duration: 1.0, delegate: self)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            self.speedometerMask.image = UIImage(named: "mask_over_60")
+        }
     }
     
-    @objc func update() {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         
-        speedometer.value += increment
-        
-        if (speedometer.value >= speedometer.valueMaximum) {
-            increment = -increment
-        }
-        else if (speedometer.value <= speedometer.valueMinimum)
+        if (speedometerInit)
         {
-            initSpeedometerTimer.invalidate()
-            speedometer.addTarget(self, action: #selector(speedometerChanged(_:)), for: .valueChanged)
-            increment = -increment
+            let startAngle =  angleForSpeed(speed: speed)
+            speed = speedMinimum
+            let stopAngle =  angleForSpeed(speed: speed)
+
+            speedometerInit = false
+            speedometer.rotateWithAnimation(startAngle: startAngle°, stopAngle: stopAngle°, duration: 1.0, delegate: self)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                self.speedometerMask.image = UIImage(named: "mask_under_60")
+            }
         }
     }
+    
+    private func angleForSpeed(speed: Int) -> CGFloat {
+        
+        //40 mph = 90 deg
+        let deg: CGFloat = 2.25
+        let angle =  CGFloat(CGFloat(speed) * deg)
+        return angle
+    }
+
 
     // MARK: - Fonts
     
@@ -447,5 +558,37 @@ class ViewController: UIViewController, CAAnimationDelegate {
     //                print("== \(names)")
     //            }
     //        }
+}
+
+postfix operator °
+
+protocol IntegerInitializable: ExpressibleByIntegerLiteral {
+    init (_: Int)
+}
+
+extension Int: IntegerInitializable {
+    postfix public static func °(lhs: Int) -> CGFloat {
+        return CGFloat(lhs) * .pi / 180
+    }
+}
+
+extension CGFloat: IntegerInitializable {
+    postfix public static func °(lhs: CGFloat) -> CGFloat {
+        return lhs * .pi / 180
+    }
+}
+
+extension UIImageView {
+    
+    func rotateWithAnimation(startAngle: CGFloat, stopAngle: CGFloat, duration: CGFloat? = nil, delegate: CAAnimationDelegate? = nil) {
+        let pathAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        pathAnimation.duration = CFTimeInterval(duration ?? 2.0)
+        pathAnimation.fromValue = startAngle
+        pathAnimation.toValue = stopAngle
+        pathAnimation.delegate = delegate
+        pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        self.transform = transform.rotated(by: stopAngle - startAngle)
+        self.layer.add(pathAnimation, forKey: "transform.rotation")
+    }
 }
 
