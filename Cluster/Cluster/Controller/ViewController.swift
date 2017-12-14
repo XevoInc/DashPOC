@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, CAAnimationDelegate {
+class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
 
     @IBOutlet weak var tempGauge: UIImageView!
     @IBOutlet weak var fuelGauge: UIImageView!
@@ -42,35 +42,22 @@ class ViewController: UIViewController, CAAnimationDelegate {
     private var tempLevel: Int = 0
     private var speed: Int = 0
     
-    enum Gear {
-        case park
-        case reverse
-        case neutral
-        case drive
-        case low
-    }
+    private var webSocket: WebSocket?
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        webSocket = WebSocket(delegate: self)
         setBoldLabels()
         updateTime()
         startClock()
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(gesture:)))
-        tap.numberOfTapsRequired = 2
-        self.view.addGestureRecognizer(tap)
-        
         turnOff(animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        self.turnOn(animated: true)
-        //self.testSpeed()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -81,29 +68,130 @@ class ViewController: UIViewController, CAAnimationDelegate {
         return true
     }
     
+    // MARK: - Setup
+    
+    private func setBoldLabels() {
+        
+        mileageLabel.font = UIFont(name: "EurostileBold", size: 36.0)
+        timeLabel.font = UIFont(name: "EurostileBold", size: 36.0)
+    }
+    
+    private func startClock() {
+        clockTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(clockTimerUpdated), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func clockTimerUpdated() {
+        updateTime()
+    }
+    
+    private func updateTime() {
+        
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: date)
+        var displayHour = hour < 13 ? hour : hour - 12
+        if displayHour == 0 {
+            displayHour = 12
+        }
+        
+        let minutes = calendar.component(.minute, from: date)
+        var minutesString = String(minutes)
+        if (minutes < 10)
+        {
+            minutesString = "0" + minutesString
+        }
+        
+        self.timeLabel.text = "\(displayHour):" + minutesString
+        self.pmLabel.text = hour < 13 ? "AM" : "PM"
+    }
+    
+    private func fuelStartup() {
+        
+        if (fuelLevel < 20)
+        {
+            fuelLevel += 1
+            
+            var imageName = "fuel_gauge_fill_\(fuelLevel)"
+            if (fuelLevel < 4) {
+                imageName = imageName + "_startup"
+            }
+            
+            let image = UIImage(named: imageName)
+            self.fuelGauge.image = image
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.fuelStartup()
+            })
+        }
+    }
+    
+    private func tempStartup() {
+        
+        if (tempLevel < 10)
+        {
+            tempLevel += 1
+            
+            let imageName = "temp_gauge_fill_\(tempLevel)"
+            let image = UIImage(named: imageName)
+            self.tempGauge.image = image
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.tempStartup()
+            })
+        }
+    }
+    
+    private var speedometerInit = false
+    private func speedometerStartup() {
+        
+        speedometerMask.image = UIImage(named: "mask_under_60")
+        
+        let startAngle =  angleForSpeed(speed: speed)
+        speed = speedMaximum
+        let stopAngle =  angleForSpeed(speed: speed)
+        
+        speedometerInit = true
+        speedometer.rotateWithAnimation(startAngle: startAngle°, stopAngle: stopAngle°, duration: 1.0, delegate: self)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            self.speedometerMask.image = UIImage(named: "mask_over_60")
+        }
+    }
+    
     // Mark: - Test
     func testSpeed() {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            self.setSpeed(speed: 90)
+            self.setSpeed(90)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
-            self.setSpeed(speed: 30)
+            self.setSpeed(30)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 11.0) {
-            self.setSpeed(speed: 105)
+            self.setSpeed(105)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 14.0) {
-            self.setSpeed(speed: 0)
+            self.setSpeed(0)
         }
     }
     
-    // MARK: - Run Modes
+    // MARK: - WebsocketDelegate
     
-    func turnOn(animated: Bool) {
+    func startCar(_ start: Bool, animated: Bool)
+    {
+        if (start) {
+            turnOn(animated: animated)
+        }
+        else {
+            turnOff(animated: animated)
+        }
+    }
+    
+    private func turnOn(animated: Bool) {
         
         self.engineIsOn = true
         let interval: TimeInterval = animated ? 0.5 : 0.0
@@ -137,9 +225,9 @@ class ViewController: UIViewController, CAAnimationDelegate {
         }) { (complete) in
             
             DispatchQueue.main.async {
-                self.initFuel()
-                self.initTemp()
-                self.initSpeedometer()
+                self.fuelStartup()
+                self.tempStartup()
+                self.speedometerStartup()
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
@@ -157,7 +245,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
                     self.tireIndicatorOn.alpha = 0.0
                     self.brakeIndicatorOn.alpha = 0.0
                     self.engineIndicatorOn.alpha = 0.0
-                    //self.oilIndicatorOn.alpha = 0.0
+                    self.oilIndicatorOn.alpha = 0.0
                     //self.timeLabel.alpha = 0.0
                     //self.pmLabel.alpha = 0.0
                     //self.parkGearOn.alpha = 0.0
@@ -177,7 +265,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         }
     }
     
-    func turnOff(animated: Bool) {
+    private func turnOff(animated: Bool) {
         
         self.engineIsOn = false
         let interval: TimeInterval = animated ? 0.5 : 0.0
@@ -210,7 +298,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
             
         }) { (complete) in
             
-            self.setSpeed(speed: self.speedMinimum)
+            self.setSpeed(self.speedMinimum)
             self.speedLabel.text = "0"
             
             self.fuelLevel = 0
@@ -223,59 +311,95 @@ class ViewController: UIViewController, CAAnimationDelegate {
         }
     }
     
-    // MARK: - Lights
-    
-    func lights(areOn: Bool) {
-        headlightsOn.alpha = areOn ? 1.0 : 0.0
-        headlightsIndicatorOn.alpha = areOn ? 1.0 : 0.0
-    }
-    
     func flashLights() {
         
-        lights(areOn: true)
+        setVehicleLights(on: true)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.lights(areOn: false)
+            self.setVehicleLights(on: false)
         }
     }
     
-    func highBeam(isOn: Bool) {
-        headlightsOn.alpha = isOn ? 1.0 : 0.0
-        highBeamIndicatorOn.alpha = isOn ? 1.0 : 0.0
+    // MARK: - Lights
+    
+    func setVehicleLights(on: Bool) {
+        headlightsOn.alpha = on ? 1.0 : 0.0
+        headlightsIndicatorOn.alpha = on ? 1.0 : 0.0
+    }
+    
+    func setHighBeam(on: Bool) {
+        
+        if (on)
+        {
+            //headlightsOn.alpha = on ? 1.0 : 0.0
+            highBeamIndicatorOn.alpha = on ? 1.0 : 0.0
+            //headlightsIndicatorOn.alpha = on ? 1.0 : 0.0
+        }
+        else
+        {
+            highBeamIndicatorOn.alpha = on ? 1.0 : 0.0
+        }
     }
     
     // MARK: - Doors
     
-    func driversDoor(isUnlocked: Bool) {
-        driverDoorUnlock.alpha = isUnlocked ? 1.0 : 0.0
-        lockIndicatorOn.alpha = isUnlocked ? 1.0 : 0.0
+    func setDriversDoor(locked: Bool) {
+        driverDoorUnlock.alpha = locked ? 0.0 : 1.0
+        lockIndicatorOn.alpha = locked ? 0.0 : 1.0
     }
     
-    func passengerDoors(areUnlocked: Bool) {
-        passengerDoorUnlock.alpha = areUnlocked ? 1.0 : 0.0
-        lockIndicatorOn.alpha = areUnlocked ? 1.0 : 0.0
-    }
-    
-    func doors(areUnlocked: Bool) {
-        driversDoor(isUnlocked: areUnlocked)
-        passengerDoors(areUnlocked: areUnlocked)
-        lockIndicatorOn.alpha = areUnlocked ? 1.0 : 0.0
+    func setPassengerDoors(locked: Bool) {
+        passengerDoorUnlock.alpha = locked ? 0.0 : 1.0
+        lockIndicatorOn.alpha = locked ? 0.0 : 1.0
     }
     
     // MARK: - Fuel
     
-    func fuelLevel(_ level: Int) {
+    func setFuel(_ level: Int) {
         
-        if (level > 0 && level < 21)
+        var lvl = level
+        
+        if (lvl < 0) {
+            lvl = 0
+        }
+        else if (lvl > 100) {
+            lvl = 100
+        }
+        
+        let setLvl = Int(roundf(Float(lvl) / Float(5)))
+        
+        if (setLvl > 0 && setLvl < 21)
         {
-            let image = UIImage(named: "fuel_gauge_fill_\(level)")
+            let image = UIImage(named: "fuel_gauge_fill_\(setLvl)")
             self.fuelGauge.image = image
+        }
+    }
+    
+    // MARK: - Temp
+    
+    func setTemp(_ level: Int) {
+        
+        var lvl = level
+        
+        if (lvl < 0) {
+            lvl = 0
+        }
+        else if (lvl > 100) {
+            lvl = 100
+        }
+        
+        let setLvl = Int(roundf(Float(lvl) / Float(5)))
+        
+        if (setLvl > 0 && setLvl < 21)
+        {
+            let image = UIImage(named: "temp_gauge_fill_\(setLvl)")
+            self.tempGauge.image = image
         }
     }
     
     // MARK: - Odemeter
     
-    func odometer(mileage: Float) {
+    func setOdometer(mileage: Float) {
         
         let mileageString = String(format: "%0.1f", mileage)
         mileageLabel.text = mileageString
@@ -283,20 +407,20 @@ class ViewController: UIViewController, CAAnimationDelegate {
     
     // MARK: - Indicators
     
-    func tireIndicator(isOn: Bool) {
-        tireIndicatorOn.alpha = isOn ? 1.0 : 0.0
+    func setTireIndicator(on: Bool) {
+        tireIndicatorOn.alpha = on ? 1.0 : 0.0
     }
     
-    func brakeIndicator(isOn: Bool) {
-        brakeIndicatorOn.alpha = isOn ? 1.0 : 0.0
+    func setBrakeIndicator(on: Bool) {
+        brakeIndicatorOn.alpha = on ? 1.0 : 0.0
     }
     
-    func engineIndicator(isOn: Bool) {
-        engineIndicatorOn.alpha = isOn ? 1.0 : 0.0
+    func setEngineIndicator(on: Bool) {
+        engineIndicatorOn.alpha = on ? 1.0 : 0.0
     }
     
-    func oilIndicator(isOn: Bool) {
-        oilIndicatorOn.alpha = isOn ? 1.0 : 0.0
+    func setOilIndicator(on: Bool) {
+        oilIndicatorOn.alpha = on ? 1.0 : 0.0
     }
     
     // MARK: - Set Gear
@@ -330,47 +454,56 @@ class ViewController: UIViewController, CAAnimationDelegate {
     private var speedMaximum: Int  = 120
     private var speedTimer = Timer()
     
-    func setSpeed(speed newSpeed: Int) {
+    func setSpeed(_ newSpeed: Int) {
         
         if (self.speed == newSpeed) {return}
         
+        var validSpeed = newSpeed
+        
+        if (validSpeed < speedMinimum) {
+            validSpeed = speedMinimum
+        }
+        else if (validSpeed > speedMaximum) {
+            validSpeed = speedMaximum
+        }
+        
         let startAngle = angleForSpeed(speed: self.speed)
-        let stopAngle = angleForSpeed(speed: newSpeed)
+        let stopAngle = angleForSpeed(speed: validSpeed)
         
         var switchoverPct: Float = 0.0
         var range: Float?
-        if (self.speed < maskSwitchoverSpeed && newSpeed > maskSwitchoverSpeed ||
-            self.speed > maskSwitchoverSpeed && newSpeed < maskSwitchoverSpeed)
+        if (self.speed < maskSwitchoverSpeed && validSpeed > maskSwitchoverSpeed ||
+            self.speed > maskSwitchoverSpeed && validSpeed < maskSwitchoverSpeed)
         {
             if (self.speed < maskSwitchoverSpeed)
             {
                 range = Float(maskSwitchoverSpeed - self.speed)
-                switchoverPct = Float(range! / Float(newSpeed - self.speed))
+                switchoverPct = Float(range! / Float(validSpeed - self.speed))
             }
             else
             {
                 range = Float(self.speed - maskSwitchoverSpeed)
-                switchoverPct = Float(range! / Float(self.speed - newSpeed))
+                switchoverPct = Float(range! / Float(self.speed - validSpeed))
             }
         }
         
         speedometer.rotateWithAnimation(startAngle: startAngle°, stopAngle: stopAngle°, duration: 1.0, delegate: self)
         _ = INTUAnimationEngine.animate(withDuration: 1.0, delay: 0.0, animations: { (progress) in
             
-            if (newSpeed > 0)
+            if (validSpeed > 0)
             {
                 self.setGear(gear: .drive)
             }
 
-            self.updateSpeedLabel(progress: Float(progress), startSpeed: self.speed, endSpeed: newSpeed, maskSwitch: switchoverPct)
+            self.updateSpeedLabel(progress: Float(progress), startSpeed: self.speed, endSpeed: validSpeed, maskSwitch: switchoverPct)
             
         }, completion: { (complete) in
             
-            self.speed = newSpeed
-            self.speedLabel.text = String(describing: Int(newSpeed))
+            self.speed = validSpeed
+            self.speedLabel.text = String(describing: Int(validSpeed))
             self.maskSet = false
             
-            if (newSpeed == 0)
+            if (validSpeed == 0)
             {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
                     self.setGear(gear: .park)
@@ -379,8 +512,8 @@ class ViewController: UIViewController, CAAnimationDelegate {
         })
     }
     
-    var maskSet = false
-    func updateSpeedLabel(progress: Float, startSpeed: Int, endSpeed: Int, maskSwitch: Float) {
+    private var maskSet = false
+    private func updateSpeedLabel(progress: Float, startSpeed: Int, endSpeed: Int, maskSwitch: Float) {
         
         let increment = startSpeed < endSpeed
         let range = abs(startSpeed - endSpeed)
@@ -391,9 +524,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         } else {
             speedInc = -Int(roundf(progress * Float(range)))
         }
-        
-        print("\(speedInc!)")
-        
+                
         let speed2 = startSpeed + speedInc!
         self.speedLabel.text = String(describing: speed2)
         
@@ -410,113 +541,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         }
     }
 
-    
-    // MARK: - Setup
-
-    private func setBoldLabels() {
-        
-        mileageLabel.font = UIFont(name: "EurostileBold", size: 36.0)
-        timeLabel.font = UIFont(name: "EurostileBold", size: 36.0)
-    }
-
-    private func startClock() {
-        clockTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerUpdated), userInfo: nil, repeats: true)
-    }
-    
-    @objc private func timerUpdated() {
-        updateTime()
-    }
-
-    private func updateTime() {
-        
-        let date = Date()
-        let calendar = Calendar.current
-        
-        let hour = calendar.component(.hour, from: date)
-        var displayHour = hour < 13 ? hour : hour - 12
-        if displayHour == 0 {
-            displayHour = 12
-        }
-        
-        let minutes = calendar.component(.minute, from: date)
-        var minutesString = String(minutes)
-        if (minutes < 10)
-        {
-            minutesString = "0" + minutesString
-        }
-        
-        self.timeLabel.text = "\(displayHour):" + minutesString
-        self.pmLabel.text = hour < 13 ? "AM" : "PM"
-    }
-    
-    @objc private func handleTap(gesture: UITapGestureRecognizer) {
-        
-        if (self.engineIsOn)
-        {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.turnOff(animated: true)
-            })
-        }
-        else
-        {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.turnOn(animated: true)
-            })
-        }
-    }
-    
-    private func initFuel() {
-        
-        if (fuelLevel < 20)
-        {
-            fuelLevel += 1
-            
-            var imageName = "fuel_gauge_fill_\(fuelLevel)"
-            if (fuelLevel < 4) {
-                imageName = imageName + "_startup"
-            }
-            
-            let image = UIImage(named: imageName)
-            self.fuelGauge.image = image
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                self.initFuel()
-            })
-        }
-    }
-    
-    private func initTemp() {
-        
-        if (tempLevel < 10)
-        {
-            tempLevel += 1
-            
-            let imageName = "temp_gauge_fill_\(tempLevel)"
-            let image = UIImage(named: imageName)
-            self.tempGauge.image = image
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                self.initTemp()
-            })
-        }
-    }
-
-    private var speedometerInit = false
-    private func initSpeedometer() {
-        
-        speedometerMask.image = UIImage(named: "mask_under_60")
-        
-        let startAngle =  angleForSpeed(speed: speed)
-        speed = speedMaximum
-        let stopAngle =  angleForSpeed(speed: speed)
-        
-        speedometerInit = true
-        speedometer.rotateWithAnimation(startAngle: startAngle°, stopAngle: stopAngle°, duration: 1.0, delegate: self)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            self.speedometerMask.image = UIImage(named: "mask_over_60")
-        }
-    }
+    // MARK: - CAAnimationDelegate
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         
@@ -535,6 +560,8 @@ class ViewController: UIViewController, CAAnimationDelegate {
         }
     }
     
+    // MARK: - Helpers
+    
     private func angleForSpeed(speed: Int) -> CGFloat {
         
         //40 mph = 90 deg
@@ -542,7 +569,6 @@ class ViewController: UIViewController, CAAnimationDelegate {
         let angle =  CGFloat(CGFloat(speed) * deg)
         return angle
     }
-
 
     // MARK: - Fonts
     
