@@ -49,6 +49,9 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerSettingsBundle()
+        NotificationCenter.default.addObserver(self, selector: #selector(defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+        
         webSocket = WebSocket(delegate: self)
         setBoldLabels()
         updateTime()
@@ -69,6 +72,15 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     }
     
     // MARK: - Setup
+    
+    func registerSettingsBundle() {
+        let appDefaults = [String:AnyObject]()
+        UserDefaults.standard.register(defaults: appDefaults)
+    }
+    
+    @objc func defaultsChanged() {
+        webSocket = WebSocket(delegate: self)
+    }
     
     private func setBoldLabels() {
         

@@ -36,8 +36,6 @@ enum Gear {
 
 class WebSocket: NSObject, DemoWebSocketDelegate {
 
-    //private let DEMO_IDENTIFIER = "xreDemoIdentifier"
-    private let DEMO_IDENTIFIER = "clusterDemoIdentifier"
     private var webSocket: DemoWebSocket?
     private weak var webSocketDelegate: WebSocketDelegate?
     
@@ -49,9 +47,7 @@ class WebSocket: NSObject, DemoWebSocketDelegate {
     }
     
     private func setupWebSocket() {
-        
-        UserDefaults.standard.set(DEMO_IDENTIFIER, forKey: "demoIdentifier")
-        
+                
         webSocket = DemoWebSocket()
         webSocket?.delegate = self
         webSocket?.beginSession()

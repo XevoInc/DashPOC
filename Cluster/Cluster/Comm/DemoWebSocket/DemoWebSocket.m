@@ -29,7 +29,7 @@
 -(void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *demoIdentifier = [defaults objectForKey:@"demoIdentifier"];
+    NSString *demoIdentifier = [defaults objectForKey:@"CLUSTER_DEMO_ID"];
     NSString *message = [NSString stringWithFormat:@"{\"method\" : \"setConnectionProperties\", \"params\" : {\"vehicleID\" : \"%@\"}}", demoIdentifier];
     [socket send:message];
     message = @"{\"method\" : \"getAllProperties\", \"params\" : {}}";

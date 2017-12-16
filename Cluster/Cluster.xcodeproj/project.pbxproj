@@ -14,6 +14,7 @@
 		0427F8651FDFA3B5007D8BF4 /* INTUEasingFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0427F8601FDFA3B5007D8BF4 /* INTUEasingFunctions.m */; };
 		0427F8691FE212AD007D8BF4 /* DemoWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0427F8681FE212AD007D8BF4 /* DemoWebSocket.m */; };
 		0454D2511FE22CD20087D8BC /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454D2501FE22CD20087D8BC /* WebSocket.swift */; };
+		0454D2531FE4B84E0087D8BC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0454D2521FE4B84E0087D8BC /* Settings.bundle */; };
 		04657EC31FD1215B003E47E5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04AE157A1FD0F620001A251C /* Info.plist */; };
 		04657EC71FD12489003E47E5 /* Eurostile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04657EC61FD12489003E47E5 /* Eurostile.ttf */; };
 		04AE156F1FD0F620001A251C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AE156E1FD0F620001A251C /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		0427F8671FE212AD007D8BF4 /* DemoWebSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoWebSocket.h; sourceTree = "<group>"; };
 		0427F8681FE212AD007D8BF4 /* DemoWebSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoWebSocket.m; sourceTree = "<group>"; };
 		0454D2501FE22CD20087D8BC /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		0454D2521FE4B84E0087D8BC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		04657EC61FD12489003E47E5 /* Eurostile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Eurostile.ttf; sourceTree = "<group>"; };
 		04AE156B1FD0F620001A251C /* Cluster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cluster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AE156E1FD0F620001A251C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				04AE15751FD0F620001A251C /* Assets.xcassets */,
 				04AE15771FD0F620001A251C /* LaunchScreen.storyboard */,
 				04AE157A1FD0F620001A251C /* Info.plist */,
+				0454D2521FE4B84E0087D8BC /* Settings.bundle */,
 			);
 			path = Cluster;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				04AE15761FD0F620001A251C /* Assets.xcassets in Resources */,
 				04657EC31FD1215B003E47E5 /* Info.plist in Resources */,
 				04AE15741FD0F620001A251C /* Main.storyboard in Resources */,
+				0454D2531FE4B84E0087D8BC /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
