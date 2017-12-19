@@ -15,6 +15,8 @@
 		0427F8691FE212AD007D8BF4 /* DemoWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0427F8681FE212AD007D8BF4 /* DemoWebSocket.m */; };
 		0454D2511FE22CD20087D8BC /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454D2501FE22CD20087D8BC /* WebSocket.swift */; };
 		0454D2531FE4B84E0087D8BC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0454D2521FE4B84E0087D8BC /* Settings.bundle */; };
+		046353161FE89A470009DDDF /* Cluster_129.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046353141FE89A470009DDDF /* Cluster_129.storyboard */; };
+		0463531A1FE8A46F0009DDDF /* Cluster_105.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046353181FE8A46F0009DDDF /* Cluster_105.storyboard */; };
 		04657EC31FD1215B003E47E5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04AE157A1FD0F620001A251C /* Info.plist */; };
 		04657EC71FD12489003E47E5 /* Eurostile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04657EC61FD12489003E47E5 /* Eurostile.ttf */; };
 		04AE156F1FD0F620001A251C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AE156E1FD0F620001A251C /* AppDelegate.swift */; };
@@ -62,6 +64,8 @@
 		0427F8681FE212AD007D8BF4 /* DemoWebSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoWebSocket.m; sourceTree = "<group>"; };
 		0454D2501FE22CD20087D8BC /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		0454D2521FE4B84E0087D8BC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		046353151FE89A470009DDDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Cluster_129.storyboard; sourceTree = "<group>"; };
+		046353191FE8A46F0009DDDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Cluster_105.storyboard; sourceTree = "<group>"; };
 		04657EC61FD12489003E47E5 /* Eurostile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Eurostile.ttf; sourceTree = "<group>"; };
 		04AE156B1FD0F620001A251C /* Cluster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cluster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AE156E1FD0F620001A251C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +179,13 @@
 			path = SocketDelegate;
 			sourceTree = "<group>";
 		};
+		046353171FE89BEF0009DDDF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		04657EC81FD78063003E47E5 /* External */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,11 +219,14 @@
 		04AE156D1FD0F620001A251C /* Cluster */ = {
 			isa = PBXGroup;
 			children = (
+				046353171FE89BEF0009DDDF /* Helpers */,
 				0454D24D1FE22C1B0087D8BC /* Controller */,
 				0454D24E1FE22C910087D8BC /* Comm */,
 				04657EC81FD78063003E47E5 /* External */,
 				04AE156E1FD0F620001A251C /* AppDelegate.swift */,
 				04AE15721FD0F620001A251C /* Main.storyboard */,
+				046353141FE89A470009DDDF /* Cluster_129.storyboard */,
+				046353181FE8A46F0009DDDF /* Cluster_105.storyboard */,
 				0427F8661FDFA3F3007D8BF4 /* Cluster-Bridging-Header.h */,
 				04AE159C1FD11271001A251C /* Resources */,
 				04AE15751FD0F620001A251C /* Assets.xcassets */,
@@ -399,8 +413,10 @@
 			files = (
 				2CF957F81FD38A5A00FC085D /* Eurostile-Bold.ttf in Resources */,
 				04657EC71FD12489003E47E5 /* Eurostile.ttf in Resources */,
+				046353161FE89A470009DDDF /* Cluster_129.storyboard in Resources */,
 				04AE15791FD0F620001A251C /* LaunchScreen.storyboard in Resources */,
 				04AE15761FD0F620001A251C /* Assets.xcassets in Resources */,
+				0463531A1FE8A46F0009DDDF /* Cluster_105.storyboard in Resources */,
 				04657EC31FD1215B003E47E5 /* Info.plist in Resources */,
 				04AE15741FD0F620001A251C /* Main.storyboard in Resources */,
 				0454D2531FE4B84E0087D8BC /* Settings.bundle in Resources */,
@@ -621,6 +637,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		046353141FE89A470009DDDF /* Cluster_129.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				046353151FE89A470009DDDF /* Base */,
+			);
+			name = Cluster_129.storyboard;
+			sourceTree = "<group>";
+		};
+		046353181FE8A46F0009DDDF /* Cluster_105.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				046353191FE8A46F0009DDDF /* Base */,
+			);
+			name = Cluster_105.storyboard;
+			sourceTree = "<group>";
+		};
 		04AE15721FD0F620001A251C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

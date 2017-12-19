@@ -41,6 +41,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     private var engineIsOn = false
     private var tempLevel: Int = 0
     private var speed: Int = 0
+    var devicePrefix = ""
     
     private var webSocket: WebSocket?
     
@@ -124,7 +125,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
         {
             fuelLevel += 1
             
-            var imageName = "fuel_gauge_fill_\(fuelLevel)"
+            var imageName = devicePrefix + "fuel_gauge_fill_\(fuelLevel)"
             if (fuelLevel < 4) {
                 imageName = imageName + "_startup"
             }
@@ -144,7 +145,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
         {
             tempLevel += 1
             
-            let imageName = "temp_gauge_fill_\(tempLevel)"
+            let imageName = devicePrefix + "temp_gauge_fill_\(tempLevel)"
             let image = UIImage(named: imageName)
             self.tempGauge.image = image
             
@@ -157,7 +158,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     private var speedometerInit = false
     private func speedometerStartup() {
         
-        speedometerMask.image = UIImage(named: "mask_under_60")
+        speedometerMask.image = UIImage(named: devicePrefix + "mask_under_60")
         
         let startAngle =  angleForSpeed(speed: speed)
         speed = speedMaximum
@@ -167,7 +168,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
         speedometer.rotateWithAnimation(startAngle: startAngle°, stopAngle: stopAngle°, duration: 1.0, delegate: self)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            self.speedometerMask.image = UIImage(named: "mask_over_60")
+            self.speedometerMask.image = UIImage(named: self.devicePrefix + "mask_over_60")
         }
     }
     
@@ -314,14 +315,16 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
             self.speedLabel.text = "0"
             
             self.fuelLevel = 0
-            let fuelImage = UIImage(named: "fuel_gauge_fill_1_startup")
+            let fuelImage = UIImage(named: self.devicePrefix + "fuel_gauge_fill_1_startup")
             self.fuelGauge.image = fuelImage
             
             self.tempLevel = 0
-            let tempImage = UIImage(named: "temp_gauge_fill_1")
+            let tempImage = UIImage(named: self.devicePrefix + "temp_gauge_fill_1")
             self.tempGauge.image = tempImage
         }
     }
+    
+    // MARK: - Lights
     
     func flashLights() {
         
@@ -331,38 +334,45 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
             self.setVehicleLights(on: false)
         }
     }
-    
-    // MARK: - Lights
-    
+
     func setVehicleLights(on: Bool) {
-        headlightsOn.alpha = on ? 1.0 : 0.0
-        headlightsIndicatorOn.alpha = on ? 1.0 : 0.0
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.headlightsOn.alpha = on ? 1.0 : 0.0
+            self.headlightsIndicatorOn.alpha = on ? 1.0 : 0.0
+        })
     }
     
     func setHighBeam(on: Bool) {
         
-        if (on)
-        {
-            //headlightsOn.alpha = on ? 1.0 : 0.0
-            highBeamIndicatorOn.alpha = on ? 1.0 : 0.0
-            //headlightsIndicatorOn.alpha = on ? 1.0 : 0.0
-        }
-        else
-        {
-            highBeamIndicatorOn.alpha = on ? 1.0 : 0.0
-        }
+        UIView.animate(withDuration: 0.25, animations: {
+            if (on)
+            {
+                self.highBeamIndicatorOn.alpha = on ? 1.0 : 0.0
+            }
+            else
+            {
+                self.highBeamIndicatorOn.alpha = on ? 1.0 : 0.0
+            }
+        })
     }
     
     // MARK: - Doors
     
     func setDriversDoor(locked: Bool) {
-        driverDoorUnlock.alpha = locked ? 0.0 : 1.0
-        lockIndicatorOn.alpha = locked ? 0.0 : 1.0
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.driverDoorUnlock.alpha = locked ? 0.0 : 1.0
+            self.lockIndicatorOn.alpha = locked ? 0.0 : 1.0
+        })
     }
     
     func setPassengerDoors(locked: Bool) {
-        passengerDoorUnlock.alpha = locked ? 0.0 : 1.0
-        lockIndicatorOn.alpha = locked ? 0.0 : 1.0
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.passengerDoorUnlock.alpha = locked ? 0.0 : 1.0
+            self.lockIndicatorOn.alpha = locked ? 0.0 : 1.0
+        })
     }
     
     // MARK: - Fuel
@@ -382,7 +392,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
         
         if (setLvl > 0 && setLvl < 21)
         {
-            let image = UIImage(named: "fuel_gauge_fill_\(setLvl)")
+            let image = UIImage(named: devicePrefix + "fuel_gauge_fill_\(setLvl)")
             self.fuelGauge.image = image
         }
     }
@@ -404,7 +414,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
         
         if (setLvl > 0 && setLvl < 21)
         {
-            let image = UIImage(named: "temp_gauge_fill_\(setLvl)")
+            let image = UIImage(named: devicePrefix + "temp_gauge_fill_\(setLvl)")
             self.tempGauge.image = image
         }
     }
@@ -420,19 +430,31 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     // MARK: - Indicators
     
     func setTireIndicator(on: Bool) {
-        tireIndicatorOn.alpha = on ? 1.0 : 0.0
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.tireIndicatorOn.alpha = on ? 1.0 : 0.0
+        })
     }
     
     func setBrakeIndicator(on: Bool) {
-        brakeIndicatorOn.alpha = on ? 1.0 : 0.0
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.brakeIndicatorOn.alpha = on ? 1.0 : 0.0
+        })
     }
     
     func setEngineIndicator(on: Bool) {
-        engineIndicatorOn.alpha = on ? 1.0 : 0.0
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.engineIndicatorOn.alpha = on ? 1.0 : 0.0
+        })
     }
     
     func setOilIndicator(on: Bool) {
-        oilIndicatorOn.alpha = on ? 1.0 : 0.0
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.oilIndicatorOn.alpha = on ? 1.0 : 0.0
+        })
     }
     
     // MARK: - Set Gear
@@ -543,11 +565,11 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
         if (maskSwitch > 0.0 && !maskSet)
         {
                 if (speed2 > self.maskSwitchoverSpeed - 10 && speed2 < self.maskSwitchoverSpeed && increment) {
-                    self.speedometerMask.image = UIImage(named: "mask_over_60")
+                    self.speedometerMask.image = UIImage(named: devicePrefix + "mask_over_60")
                     self.maskSet = true
                 }
                 else if (speed2 < self.maskSwitchoverSpeed && speed2 > self.maskSwitchoverSpeed - 10 && !increment) {
-                    self.speedometerMask.image = UIImage(named: "mask_under_60")
+                    self.speedometerMask.image = UIImage(named: devicePrefix + "mask_under_60")
                     self.maskSet = true
                 }
         }
@@ -567,7 +589,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
             speedometer.rotateWithAnimation(startAngle: startAngle°, stopAngle: stopAngle°, duration: 1.0, delegate: self)
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                self.speedometerMask.image = UIImage(named: "mask_under_60")
+                self.speedometerMask.image = UIImage(named: self.devicePrefix + "mask_under_60")
             }
         }
     }

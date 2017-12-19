@@ -13,14 +13,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print("\(documentsPath)")
         
         setDefaultsFromSettingsBundle()
+        
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        
+        var viewController: ViewController?
+        
+        if (screenWidth == 1366 && screenHeight == 1024 ||
+            screenWidth == 1024 && screenHeight == 1366)
+        {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Cluster_129", bundle: nil)
+            viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
+            viewController?.devicePrefix = "12_"
+        }
+        else
+        {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Cluster_105", bundle: nil)
+            viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
+            viewController?.devicePrefix = "10_"
+        }
+        
+        self.window?.rootViewController = viewController
+        self.window?.makeKeyAndVisible()
         
         return true
     }
