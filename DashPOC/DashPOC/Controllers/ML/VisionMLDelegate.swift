@@ -30,7 +30,7 @@ class VisionMLDelegate:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     init(controller: MLViewController, view: CameraView) {
         super.init()
         
-        guard let mlModel = try? VNCoreMLModel(for: Inceptionv3().model) else {
+        guard let mlModel = try? VNCoreMLModel(for: DaskClassifier().model) else {
             fatalError("Machine Learning Model missing!")
         }
         

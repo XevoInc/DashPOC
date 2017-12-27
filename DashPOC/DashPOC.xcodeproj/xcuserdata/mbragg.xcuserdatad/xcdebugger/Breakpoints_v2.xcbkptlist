@@ -38,15 +38,6 @@
                </BreakpointActionProxy>
             </Actions>
             <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__clang_call_terminate"
-                  moduleName = "libglInterpose.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  offsetFromSymbolStart = "13328">
-               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -336,38 +327,6 @@
             endingLineNumber = "152"
             landmarkName = "handleTextIdentifiaction(request:error:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in DashPOC.VisionTextDelegate.handleTextIdentifiaction(request: __ObjC.VNRequest, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "DashPOC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mbragg/Documents/Development/Xevo/DashPOC/DashPOC/Controllers/VisionTextDelegate.swift"
-                  timestampString = "531378241.007964"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "3244">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in DashPOC.VisionTextDelegate.handleTextIdentifiaction(request: __ObjC.VNRequest, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "DashPOC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mbragg/Documents/Development/Xevo/DashPOC/DashPOC/Controllers/VisionTextDelegate.swift"
-                  timestampString = "531378241.009681"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -383,6 +342,38 @@
             startingLineNumber = "159"
             endingLineNumber = "159"
             landmarkName = "handleTextIdentifiaction(request:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DashPOC/Controllers/ML/VisionMLDelegate.swift"
+            timestampString = "535749401.735557"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "classificationCompleteHandler(request:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DashPOC/Controllers/ML/VisionMLDelegate.swift"
+            timestampString = "535749401.735936"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "classificationCompleteHandler(request:error:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

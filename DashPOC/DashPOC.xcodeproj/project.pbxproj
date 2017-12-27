@@ -18,6 +18,7 @@
 		0402E7AC1FA41F5F00DED83C /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0402E7AB1FA41F5F00DED83C /* Inceptionv3.mlmodel */; };
 		0402E7AF1FA4211700DED83C /* VisionMLDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402E7AE1FA4211700DED83C /* VisionMLDelegate.swift */; };
 		0402E7BC1FA4FE0600DED83C /* VisionTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402E7B01FA4BD7A00DED83C /* VisionTextDelegate.swift */; };
+		0415EDA71FEEE1B800BDBB01 /* DaskClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0415EDA61FEEE1B800BDBB01 /* DaskClassifier.mlmodel */; };
 		04D855071FAC21D800CA1310 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D855061FAC21C700CA1310 /* CoreImage.framework */; };
 		04D8550C1FAC239500CA1310 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D8550B1FAC239500CA1310 /* libstdc++.tbd */; };
 		04D855251FAC25E400CA1310 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D855241FAC25E400CA1310 /* TesseractOCR.framework */; };
@@ -76,6 +77,7 @@
 		0402E7AB1FA41F5F00DED83C /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		0402E7AE1FA4211700DED83C /* VisionMLDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionMLDelegate.swift; sourceTree = "<group>"; };
 		0402E7B01FA4BD7A00DED83C /* VisionTextDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionTextDelegate.swift; sourceTree = "<group>"; };
+		0415EDA61FEEE1B800BDBB01 /* DaskClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DaskClassifier.mlmodel; sourceTree = "<group>"; };
 		04D855061FAC21C700CA1310 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		04D8550A1FAC22E400CA1310 /* DashPOC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DashPOC-Bridging-Header.h"; sourceTree = "<group>"; };
 		04D8550B1FAC239500CA1310 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -174,6 +176,7 @@
 		0402E7AA1FA41F5F00DED83C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0415EDA61FEEE1B800BDBB01 /* DaskClassifier.mlmodel */,
 				0402E7AB1FA41F5F00DED83C /* Inceptionv3.mlmodel */,
 			);
 			path = Models;
@@ -372,6 +375,7 @@
 				0402E77B1FA41ABA00DED83C /* AppDelegate.swift in Sources */,
 				2CC051891FB7543F000B98AD /* PageViewController.swift in Sources */,
 				0402E7BC1FA4FE0600DED83C /* VisionTextDelegate.swift in Sources */,
+				0415EDA71FEEE1B800BDBB01 /* DaskClassifier.mlmodel in Sources */,
 				2CC1334B1FB5513600FC32F4 /* TextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
