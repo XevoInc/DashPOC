@@ -57,6 +57,10 @@
             if ( [method isEqualToString:@"setProperty"] && [params isKindOfClass:[NSDictionary class]] ) {
                 NSString *property = params[@"property"];
                 NSString *value = params[@"value"];
+                if ( [value isKindOfClass:[NSNumber class]]) {
+                    NSNumber *temp = (NSNumber *)value;
+                    value = temp.stringValue;
+                }
                 if ( property.length && value.length ) {
                     [_delegate valueChanged:property value:value];
                 }
