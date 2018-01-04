@@ -53,7 +53,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
         registerSettingsBundle()
         NotificationCenter.default.addObserver(self, selector: #selector(defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         
-        webSocket = WebSocket(delegate: self)
+        //webSocket = WebSocket(delegate: self)
         setBoldLabels()
         updateTime()
         startClock()
@@ -62,6 +62,15 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if (!engineIsOn)
+        {
+            startCar(true, animated: true)
+        }
+        else
+        {
+            startSocket()
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -77,6 +86,10 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     func registerSettingsBundle() {
         let appDefaults = [String:AnyObject]()
         UserDefaults.standard.register(defaults: appDefaults)
+    }
+    
+    private func startSocket() {
+        webSocket = WebSocket(delegate: self)
     }
     
     @objc func defaultsChanged() {
@@ -196,10 +209,10 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     
     func startCar(_ start: Bool, animated: Bool)
     {
-        if (start) {
+        if (start && !engineIsOn) {
             turnOn(animated: animated)
         }
-        else {
+        else if (!start && engineIsOn) {
             turnOff(animated: animated)
         }
     }
@@ -254,7 +267,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
                     //self.speedLabel.alpha = 0.0
                     self.headlightsOn.alpha = 0.0
                     self.passengerDoorUnlock.alpha = 0.0
-                    self.driverDoorUnlock.alpha = 0.0
+                    //self.driverDoorUnlock.alpha = 0.0
                     self.tireIndicatorOn.alpha = 0.0
                     self.brakeIndicatorOn.alpha = 0.0
                     self.engineIndicatorOn.alpha = 0.0
@@ -273,6 +286,9 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
                     //self.miLabel.alpha = 0.0
                     
                 }) { (complete) in
+                    DispatchQueue.main.async {
+                        self.startSocket()
+                    }
                 }
             })
         }

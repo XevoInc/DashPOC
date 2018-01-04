@@ -94,6 +94,11 @@ class WebSocket: NSObject, DemoWebSocketDelegate {
                 {
                     webSocketDelegate?.setFuel(Int(value)!)
                 }
+                else if (valueIsFloat(value: value))
+                {
+                    let newVal = Int(Float(value)! * 100)
+                    webSocketDelegate?.setFuel(Int(newVal))
+                }
             case "engineTemp":
                 if (valueIsInt(value: value))
                 {
