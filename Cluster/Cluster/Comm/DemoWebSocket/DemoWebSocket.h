@@ -20,5 +20,6 @@
 
 -(void)beginSession;
 -(void)changeValue:(NSString *)setting value:(NSString *)value;
+-(void)getAllProperties;
 
 @end

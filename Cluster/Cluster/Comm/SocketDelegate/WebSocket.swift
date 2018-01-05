@@ -46,6 +46,10 @@ class WebSocket: NSObject, DemoWebSocketDelegate {
         webSocketDelegate = delegate
     }
     
+    func getAllProperties()  {
+        webSocket?.getAllProperties()
+    }
+    
     private func setupWebSocket() {
                 
         webSocket = DemoWebSocket()

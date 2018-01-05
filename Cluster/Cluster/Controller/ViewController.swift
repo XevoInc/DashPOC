@@ -41,6 +41,8 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     private var engineIsOn = false
     private var tempLevel: Int = 0
     private var speed: Int = 0
+    private var driversDoorLocked = false
+    private var passengersDoorLocked = false
     var devicePrefix = ""
     
     private var webSocket: WebSocket?
@@ -53,11 +55,14 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
         registerSettingsBundle()
         NotificationCenter.default.addObserver(self, selector: #selector(defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         
-        //webSocket = WebSocket(delegate: self)
         setBoldLabels()
         updateTime()
         startClock()
         turnOff(animated: false)
+        
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(sender:)))
+//        tap.numberOfTapsRequired = 2
+//        self.view.addGestureRecognizer(tap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -89,7 +94,15 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     }
     
     private func startSocket() {
-        webSocket = WebSocket(delegate: self)
+        
+        if (webSocket == nil)
+        {
+            webSocket = WebSocket(delegate: self)
+        }
+        else
+        {
+            webSocket?.getAllProperties()
+        }
     }
     
     @objc func defaultsChanged() {
@@ -186,7 +199,20 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     }
     
     // Mark: - Test
-    func testSpeed() {
+    
+    @objc func handleDoubleTap(sender: UITapGestureRecognizer) {
+        
+        if (engineIsOn)
+        {
+            turnOff(animated: true)
+        }
+        else
+        {
+            turnOn(animated: true)
+        }
+    }
+    
+    private func testSpeed() {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             self.setSpeed(90)
@@ -337,6 +363,9 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
             self.tempLevel = 0
             let tempImage = UIImage(named: self.devicePrefix + "temp_gauge_fill_1")
             self.tempGauge.image = tempImage
+            
+            self.driversDoorLocked = false
+            self.passengersDoorLocked = false
         }
     }
     
@@ -377,17 +406,21 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     
     func setDriversDoor(locked: Bool) {
         
+        driversDoorLocked = locked
+        
         UIView.animate(withDuration: 0.25, animations: {
             self.driverDoorUnlock.alpha = locked ? 0.0 : 1.0
-            self.lockIndicatorOn.alpha = locked ? 0.0 : 1.0
+            self.lockIndicatorOn.alpha = (self.driversDoorLocked && self.passengersDoorLocked) ? 0.0 : 1.0
         })
     }
     
     func setPassengerDoors(locked: Bool) {
         
+        passengersDoorLocked = locked
+        
         UIView.animate(withDuration: 0.25, animations: {
             self.passengerDoorUnlock.alpha = locked ? 0.0 : 1.0
-            self.lockIndicatorOn.alpha = locked ? 0.0 : 1.0
+            self.lockIndicatorOn.alpha = (self.driversDoorLocked && self.passengersDoorLocked) ? 0.0 : 1.0
         })
     }
     

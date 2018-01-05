@@ -28,13 +28,25 @@
 #pragma mark SRWebSocketDelegate
 -(void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
+    NSLog(@"webSocketDidOpen");
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *demoIdentifier = [defaults objectForKey:@"CLUSTER_DEMO_ID"];
     NSString *message = [NSString stringWithFormat:@"{\"method\" : \"setConnectionProperties\", \"params\" : {\"vehicleID\" : \"%@\"}}", demoIdentifier];
     [socket send:message];
-    message = @"{\"method\" : \"getAllProperties\", \"params\" : {}}";
-    [socket send:message];
-    NSLog(@"webSocketDidOpen");
+    
+    [self getAllProperties];
+    //message = @"{\"method\" : \"getAllProperties\", \"params\" : {}}";
+    //[socket send:message];
+}
+
+-(void)getAllProperties
+{
+    if (socket != nil)
+    {
+        NSString *message = @"{\"method\" : \"getAllProperties\", \"params\" : {}}";
+        [socket send:message];
+    }
 }
 
 -(void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
