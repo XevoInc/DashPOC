@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0436D3AD1FFC827E008D39FC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436D3AC1FFC827E008D39FC /* PageViewController.swift */; };
+		0436D3B01FFC8289008D39FC /* VisionMLDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436D3AE1FFC8289008D39FC /* VisionMLDelegate.swift */; };
+		0436D3B11FFC8289008D39FC /* MLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436D3AF1FFC8289008D39FC /* MLViewController.swift */; };
+		0436D3B51FFC82EA008D39FC /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436D3B41FFC82EA008D39FC /* CameraView.swift */; };
+		0436D3B71FFC8316008D39FC /* DaskClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0436D3B61FFC8316008D39FC /* DaskClassifier.mlmodel */; };
+		0436D3BA1FFC878B008D39FC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0436D3B91FFC878B008D39FC /* CoreImage.framework */; };
+		0436D3BC1FFDE729008D39FC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0436D3BB1FFDE729008D39FC /* Settings.bundle */; };
+		0436D3BE1FFDF050008D39FC /* manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0436D3BD1FFDF050008D39FC /* manual.pdf */; };
+		0436D3C01FFDFA28008D39FC /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436D3BF1FFDFA28008D39FC /* PDFViewController.swift */; };
 		04674D541FF363AB00483CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04674D531FF363AB00483CCF /* AppDelegate.swift */; };
 		04674D581FF363AB00483CCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04674D571FF363AB00483CCF /* ViewController.swift */; };
 		04674D6B1FF363AB00483CCF /* ARKitPOCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04674D6A1FF363AB00483CCF /* ARKitPOCTests.swift */; };
@@ -50,6 +59,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0436D3AC1FFC827E008D39FC /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		0436D3AE1FFC8289008D39FC /* VisionMLDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionMLDelegate.swift; sourceTree = "<group>"; };
+		0436D3AF1FFC8289008D39FC /* MLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLViewController.swift; sourceTree = "<group>"; };
+		0436D3B41FFC82EA008D39FC /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		0436D3B61FFC8316008D39FC /* DaskClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DaskClassifier.mlmodel; sourceTree = "<group>"; };
+		0436D3B91FFC878B008D39FC /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		0436D3BB1FFDE729008D39FC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		0436D3BD1FFDF050008D39FC /* manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = manual.pdf; sourceTree = "<group>"; };
+		0436D3BF1FFDFA28008D39FC /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		04674D501FF363AB00483CCF /* ARKitPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARKitPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04674D531FF363AB00483CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04674D571FF363AB00483CCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0436D3BA1FFC878B008D39FC /* CoreImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +124,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0436D3A81FFC8135008D39FC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0436D3AC1FFC827E008D39FC /* PageViewController.swift */,
+				0436D3AB1FFC821A008D39FC /* ML */,
+				0436D3A91FFC8148008D39FC /* AR */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0436D3A91FFC8148008D39FC /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				0436D3AA1FFC81A8008D39FC /* Controllers */,
+				04674D881FF3650E00483CCF /* Additional View Controllers */,
+				04674D8B1FF3650E00483CCF /* Focus Square */,
+				04674D8E1FF3650E00483CCF /* Utilities */,
+				04674D9A1FF3650E00483CCF /* Virtual Objects */,
+				04674D981FF3650E00483CCF /* Cars.scnassets */,
+				04674D951FF3650E00483CCF /* Models.scnassets */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
+		0436D3AA1FFC81A8008D39FC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				04674D571FF363AB00483CCF /* ViewController.swift */,
+				04674D9D1FF3650E00483CCF /* ViewController+Actions.swift */,
+				04674D871FF3650D00483CCF /* ViewController+ARSCNViewDelegate.swift */,
+				04674D841FF3650D00483CCF /* ViewController+ObjectSelection.swift */,
+				04674D861FF3650D00483CCF /* ThresholdPanGesture.swift */,
+				04674D831FF3650D00483CCF /* VirtualObjectARView.swift */,
+				04674D851FF3650D00483CCF /* VirtualObjectInteraction.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0436D3AB1FFC821A008D39FC /* ML */ = {
+			isa = PBXGroup;
+			children = (
+				0436D3B21FFC829F008D39FC /* Controllers */,
+				0436D3B31FFC82C7008D39FC /* Utilities */,
+			);
+			path = ML;
+			sourceTree = "<group>";
+		};
+		0436D3B21FFC829F008D39FC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0436D3AF1FFC8289008D39FC /* MLViewController.swift */,
+				0436D3AE1FFC8289008D39FC /* VisionMLDelegate.swift */,
+				0436D3BF1FFDFA28008D39FC /* PDFViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0436D3B31FFC82C7008D39FC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0436D3B61FFC8316008D39FC /* DaskClassifier.mlmodel */,
+				0436D3B41FFC82EA008D39FC /* CameraView.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0436D3B81FFC878A008D39FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0436D3B91FFC878B008D39FC /* CoreImage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		04674D471FF363AB00483CCF = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +205,7 @@
 				04674D691FF363AB00483CCF /* ARKitPOCTests */,
 				04674D741FF363AB00483CCF /* ARKitPOCUITests */,
 				04674D511FF363AB00483CCF /* Products */,
+				0436D3B81FFC878A008D39FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,18 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				04674D531FF363AB00483CCF /* AppDelegate.swift */,
-				04674D571FF363AB00483CCF /* ViewController.swift */,
-				04674D9D1FF3650E00483CCF /* ViewController+Actions.swift */,
-				04674D871FF3650D00483CCF /* ViewController+ARSCNViewDelegate.swift */,
-				04674D841FF3650D00483CCF /* ViewController+ObjectSelection.swift */,
-				04674D861FF3650D00483CCF /* ThresholdPanGesture.swift */,
-				04674D831FF3650D00483CCF /* VirtualObjectARView.swift */,
-				04674D851FF3650D00483CCF /* VirtualObjectInteraction.swift */,
-				04674D881FF3650E00483CCF /* Additional View Controllers */,
-				04674D8B1FF3650E00483CCF /* Focus Square */,
+				0436D3A81FFC8135008D39FC /* Controllers */,
 				04674D941FF3650E00483CCF /* Resources */,
-				04674D8E1FF3650E00483CCF /* Utilities */,
-				04674D9A1FF3650E00483CCF /* Virtual Objects */,
 			);
 			path = ARKitPOC;
 			sourceTree = "<group>";
@@ -192,12 +276,12 @@
 		04674D941FF3650E00483CCF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0436D3BD1FFDF050008D39FC /* manual.pdf */,
 				04674D991FF3650E00483CCF /* Info.plist */,
 				04674DB91FF3661C00483CCF /* LaunchScreen.storyboard */,
 				04674DBB1FF3666100483CCF /* Main.storyboard */,
 				04674D971FF3650E00483CCF /* Assets.xcassets */,
-				04674D951FF3650E00483CCF /* Models.scnassets */,
-				04674D981FF3650E00483CCF /* Cars.scnassets */,
+				0436D3BB1FFDE729008D39FC /* Settings.bundle */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -318,12 +402,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0436D3BE1FFDF050008D39FC /* manual.pdf in Resources */,
 				04674DAE1FF3650E00483CCF /* Cars.scnassets in Resources */,
 				04674DAF1FF3650E00483CCF /* Info.plist in Resources */,
 				04674DAD1FF3650E00483CCF /* Assets.xcassets in Resources */,
 				04674DBD1FF3666100483CCF /* Main.storyboard in Resources */,
 				04674DBA1FF3661C00483CCF /* LaunchScreen.storyboard in Resources */,
 				04674DAB1FF3650E00483CCF /* Models.scnassets in Resources */,
+				0436D3BC1FFDE729008D39FC /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,11 +444,17 @@
 				04674DA61FF3650E00483CCF /* FocusSquareSegment.swift in Sources */,
 				04674DA81FF3650E00483CCF /* Utilities.swift in Sources */,
 				04674DA11FF3650E00483CCF /* VirtualObjectInteraction.swift in Sources */,
+				0436D3B01FFC8289008D39FC /* VisionMLDelegate.swift in Sources */,
 				04674D541FF363AB00483CCF /* AppDelegate.swift in Sources */,
+				0436D3C01FFDFA28008D39FC /* PDFViewController.swift in Sources */,
 				04674DA51FF3650E00483CCF /* StatusViewController.swift in Sources */,
+				0436D3B51FFC82EA008D39FC /* CameraView.swift in Sources */,
 				04674DA21FF3650E00483CCF /* ThresholdPanGesture.swift in Sources */,
 				04674DB11FF3650E00483CCF /* VirtualObject.swift in Sources */,
+				0436D3B11FFC8289008D39FC /* MLViewController.swift in Sources */,
 				04674DA71FF3650E00483CCF /* FocusSquare.swift in Sources */,
+				0436D3B71FFC8316008D39FC /* DaskClassifier.mlmodel in Sources */,
+				0436D3AD1FFC827E008D39FC /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
