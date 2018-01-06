@@ -298,18 +298,9 @@
                                 <rect key="frame" x="0.0" y="10" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xrC-Zu-xH0">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xrC-Zu-xH0" customClass="IndicatorView" customModule="ARKitPOC" customModuleProvider="target">
                                 <rect key="frame" x="102.5" y="322.5" width="170" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbU-Av-CvY">
-                                        <rect key="frame" x="-20" y="-20" width="210" height="120"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="6"/>
-                                        <connections>
-                                            <action selector="oilSelectedWithSender:" destination="opE-NA-lVJ" eventType="touchUpInside" id="y0d-uW-16o"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Oil Low" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z7E-jG-9gc">
                                         <rect key="frame" x="0.0" y="-15" width="170" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -369,7 +360,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="ML" id="HpF-qp-bvB"/>
                     <connections>
-                        <outlet property="indicatorButton" destination="gbU-Av-CvY" id="xzx-rB-BfP"/>
                         <outlet property="indicatorView" destination="xrC-Zu-xH0" id="Wqr-Vb-v0m"/>
                         <outlet property="nextArrowView" destination="ufC-RR-u5j" id="sBy-Mh-hTN"/>
                         <outlet property="previewView" destination="qsg-1A-qbT" id="qqQ-af-DAu"/>

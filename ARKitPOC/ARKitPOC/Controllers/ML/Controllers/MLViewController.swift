@@ -14,9 +14,8 @@ import PDFKit
 class MLViewController: UIViewController {
     
     @IBOutlet weak var previewView: CameraView!
-    @IBOutlet weak var indicatorView: UIView!
+    @IBOutlet weak var indicatorView: IndicatorView!
     @IBOutlet weak var nextArrowView: UIView!
-    @IBOutlet weak var indicatorButton: UIButton!
     
     var visionMLDelegate:VisionMLDelegate?
     weak var pageController: PageViewController?
@@ -90,13 +89,23 @@ class MLViewController: UIViewController {
         previewView.videoPreviewLayer.frame = self.view.bounds
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        let location = touches.first?.location(in: self.indicatorView)
+        let inBounds = self.indicatorView.bounds.contains(location!)
+        if (inBounds && self.indicatorView.alpha > 0)
+        {
+            self.oilSelected()
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func nextPageSelected(sender: UIButton) {
         self.pageController?.moveToAR()
     }
     
-    @IBAction func oilSelected(sender: UIButton) {
+    func oilSelected() {
         
         let alertController = UIAlertController(title: nil, message: "OIL LOW explanation from:", preferredStyle: .actionSheet)
         
@@ -165,5 +174,18 @@ class MLViewController: UIViewController {
 //        //self.dashOverlay.frame = self.overlayView.bounds
 //    }
     
+}
+
+class IndicatorView: UIView {
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+
+        if (self.alpha > 0 && self.bounds.contains(point))
+        {
+            return self
+        }
+
+        return super.hitTest(point, with: event)
+    }
 }
 

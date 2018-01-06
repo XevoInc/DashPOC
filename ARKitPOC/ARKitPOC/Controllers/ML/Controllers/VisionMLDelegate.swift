@@ -238,8 +238,6 @@ class VisionMLDelegate:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
                             self.viewController?.indicatorView.center = CGPoint(x: x + width!/2, y: y + height!/2)
                             self.viewController?.indicatorView.frame.size = CGSize(width: width!, height: height!)
                             
-                            self.viewController?.indicatorButton.frame.size = CGSize(width: (self.viewController?.indicatorView.frame.size.width)! + 40, height: (self.viewController?.indicatorView.frame.size.height)! + 40)
-                            
                         }, completion: { (complete) in
                             
                         })
