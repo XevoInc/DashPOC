@@ -16,11 +16,29 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Demo Identifier</string>
+			<string>Identifier</string>
 			<key>Key</key>
 			<string>CLUSTER_DEMO_ID</string>
 			<key>DefaultValue</key>
 			<string>clusterDemoIdentifier</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>IP:Port</string>
+			<key>Key</key>
+			<string>CLUSTER_DEMO_IPPORT</string>
+			<key>DefaultValue</key>
+			<string>ws://52.11.183.81:8001</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>KeyboardType</key>

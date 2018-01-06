@@ -60,9 +60,9 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
         startClock()
         turnOff(animated: false)
         
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(sender:)))
-//        tap.numberOfTapsRequired = 2
-//        self.view.addGestureRecognizer(tap)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(sender:)))
+        tap.numberOfTapsRequired = 2
+        self.view.addGestureRecognizer(tap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -202,14 +202,17 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
     
     @objc func handleDoubleTap(sender: UITapGestureRecognizer) {
         
-        if (engineIsOn)
-        {
-            turnOff(animated: true)
-        }
-        else
-        {
-            turnOn(animated: true)
-        }
+        let val = self.oilIndicatorOn.alpha > 0.0
+        self.setOilIndicator(on: !val)
+        
+//        if (engineIsOn)
+//        {
+//            turnOff(animated: true)
+//        }
+//        else
+//        {
+//            turnOn(animated: true)
+//        }
     }
     
     private func testSpeed() {

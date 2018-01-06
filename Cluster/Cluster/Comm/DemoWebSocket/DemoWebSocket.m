@@ -13,7 +13,10 @@
 
 -(void)beginSession
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"ws://52.11.183.81:8001"]];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *ip = [defaults objectForKey:@"CLUSTER_DEMO_IPPORT"];
+    //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"ws://52.11.183.81:8001"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:ip]];
     socket = [[SRWebSocket alloc] initWithURLRequest:request];
     socket.delegate = self;
     [socket open];
