@@ -310,7 +310,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
                     self.lowGearOn.alpha = 0.0
                     self.headlightsIndicatorOn.alpha = 0.0
                     self.highBeamIndicatorOn.alpha = 0.0
-                    self.lockIndicatorOn.alpha = 0.0
+                    //self.lockIndicatorOn.alpha = 0.0
                     //self.mileageLabel.alpha = 0.0
                     //self.miLabel.alpha = 0.0
                     
