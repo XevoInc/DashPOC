@@ -142,7 +142,7 @@ class ViewController: UIViewController, CAAnimationDelegate, WebSocketDelegate {
         }
         
         self.timeLabel.text = "\(displayHour):" + minutesString
-        self.pmLabel.text = hour < 13 ? "AM" : "PM"
+        self.pmLabel.text = hour < 12 ? "AM" : "PM"
     }
     
     private func fuelStartup() {
