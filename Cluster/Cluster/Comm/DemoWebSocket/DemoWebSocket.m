@@ -76,7 +76,7 @@
                     NSNumber *temp = (NSNumber *)value;
                     value = temp.stringValue;
                 }
-                if ( property.length && value.length ) {
+                if ( [property isKindOfClass:[NSString class]] && [value isKindOfClass:[NSString class]] && property.length && value.length ) {
                     [_delegate valueChanged:property value:value];
                 }
             }
