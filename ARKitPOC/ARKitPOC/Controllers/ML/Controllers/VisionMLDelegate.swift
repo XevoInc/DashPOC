@@ -13,8 +13,6 @@ import Vision
 
 class VisionMLDelegate:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    
-    
     private let session = AVCaptureSession()
     weak var previewView: CameraView!
     
@@ -216,8 +214,8 @@ class VisionMLDelegate:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
                         let x = pred.boundingBox.origin.x * self.previewView.frame.size.width
                         let y = pred.boundingBox.origin.y * self.previewView.frame.size.height
                         
-                        var width: CGFloat?
-                        var height: CGFloat?
+                        var width: CGFloat = 0.0
+                        var height: CGFloat = 0.0
                         
                         if (UIDevice.current.orientation == UIDeviceOrientation.portrait || UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown)
                         {
@@ -230,13 +228,13 @@ class VisionMLDelegate:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
                             height = pred.boundingBox.size.width * self.previewView.frame.size.height
                         }
                         
-                        let rect = CGRect(x: x, y: y, width: width!, height: height!)
+                        let rect = CGRect(x: x, y: y, width: width, height: height)
                         print(rect)
                         
                         UIView.animate(withDuration: 0.05, animations: {
                             
-                            self.viewController?.indicatorView.center = CGPoint(x: x + width!/2, y: y + height!/2)
-                            self.viewController?.indicatorView.frame.size = CGSize(width: width!, height: height!)
+                            self.viewController?.indicatorView.center = CGPoint(x: x + width/2, y: y + height/2)
+                            self.viewController?.indicatorView.frame.size = CGSize(width: width, height: height)
                             
                         }, completion: { (complete) in
                             
@@ -258,11 +256,11 @@ class VisionMLDelegate:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         let confidence: Float
         let boundingBox: CGRect
         
-        var label: String  {
-            get {
-                return VisionMLDelegate.labels![labelIndex] as! String
-            }
-        }
+//        var label: String  {
+//            get {
+//                return VisionMLDelegate.labels![labelIndex] as! String
+//            }
+//        }
     }
     
     public func IoU(_ a: CGRect, _ b: CGRect) -> Float {
