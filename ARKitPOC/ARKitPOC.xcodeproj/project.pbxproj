@@ -39,6 +39,7 @@
 		04674DB21FF3650E00483CCF /* ViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04674D9D1FF3650E00483CCF /* ViewController+Actions.swift */; };
 		04674DBA1FF3661C00483CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04674DB91FF3661C00483CCF /* LaunchScreen.storyboard */; };
 		04674DBD1FF3666100483CCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04674DBB1FF3666100483CCF /* Main.storyboard */; };
+		E03527F531B1A43713F7FFA1 /* libPods-ARKitPOC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 124F66B717EDB4C768BF0F22 /* libPods-ARKitPOC.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,9 @@
 		04674D9D1FF3650E00483CCF /* ViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Actions.swift"; sourceTree = "<group>"; };
 		04674DB91FF3661C00483CCF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04674DBC1FF3666100483CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ARKitPOC/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		124F66B717EDB4C768BF0F22 /* libPods-ARKitPOC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ARKitPOC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33EE65054ECB2D9911F58AC8 /* Pods-ARKitPOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARKitPOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARKitPOC/Pods-ARKitPOC.release.xcconfig"; sourceTree = "<group>"; };
+		5AF2426D1050A1F3423A8B38 /* Pods-ARKitPOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARKitPOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARKitPOC/Pods-ARKitPOC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0436D3BA1FFC878B008D39FC /* CoreImage.framework in Frameworks */,
+				E03527F531B1A43713F7FFA1 /* libPods-ARKitPOC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				0436D3B91FFC878B008D39FC /* CoreImage.framework */,
+				124F66B717EDB4C768BF0F22 /* libPods-ARKitPOC.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -206,6 +212,7 @@
 				04674D741FF363AB00483CCF /* ARKitPOCUITests */,
 				04674D511FF363AB00483CCF /* Products */,
 				0436D3B81FFC878A008D39FC /* Frameworks */,
+				F1EB8AA345D04AFFA14A0E34 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -295,6 +302,15 @@
 			path = "Virtual Objects";
 			sourceTree = "<group>";
 		};
+		F1EB8AA345D04AFFA14A0E34 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5AF2426D1050A1F3423A8B38 /* Pods-ARKitPOC.debug.xcconfig */,
+				33EE65054ECB2D9911F58AC8 /* Pods-ARKitPOC.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -302,9 +318,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04674D7A1FF363AB00483CCF /* Build configuration list for PBXNativeTarget "ARKitPOC" */;
 			buildPhases = (
+				27EB10BA4C023200378DEEC5 /* [CP] Check Pods Manifest.lock */,
 				04674D4C1FF363AB00483CCF /* Sources */,
 				04674D4D1FF363AB00483CCF /* Frameworks */,
 				04674D4E1FF363AB00483CCF /* Resources */,
+				6EE0B85D6488541E7ACE0BDB /* [CP] Embed Pods Frameworks */,
+				83640B69B94907C2966F3E59 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -428,6 +447,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		27EB10BA4C023200378DEEC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARKitPOC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EE0B85D6488541E7ACE0BDB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARKitPOC/Pods-ARKitPOC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83640B69B94907C2966F3E59 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARKitPOC/Pods-ARKitPOC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04674D4C1FF363AB00483CCF /* Sources */ = {
@@ -610,6 +680,7 @@
 		};
 		04674D7B1FF363AB00483CCF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AF2426D1050A1F3423A8B38 /* Pods-ARKitPOC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -627,6 +698,7 @@
 		};
 		04674D7C1FF363AB00483CCF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33EE65054ECB2D9911F58AC8 /* Pods-ARKitPOC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
