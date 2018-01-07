@@ -7,6 +7,7 @@
 
 import UIKit
 import ARKit
+import BuddyBuildSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
+        BuddyBuildSDK.setup()
         setDefaultsFromSettingsBundle()
         
         guard ARWorldTrackingConfiguration.isSupported else {
